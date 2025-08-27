@@ -104,7 +104,7 @@ const HeroSection = () => {
                     src={drKaufmanImage}
                     alt="Dr. Erick Kaufman, MD - Board Certified Integrative Medicine Physician specializing in medical cannabis and holistic healthcare"
                     className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
-                    loading="lazy"
+                    
                     decoding="async"
                     width={400}
                     height={500}
