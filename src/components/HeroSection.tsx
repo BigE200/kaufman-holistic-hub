@@ -1,58 +1,10 @@
 
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { toast } from 'sonner';
 import drKaufmanOptimized from '@/assets/dr-kaufman-optimized.webp';
 import drKaufmanImage from '@/assets/dr-kaufman-headshot.jpg';
-import { removeBackground, loadImage } from '@/lib/imageAI';
-
-const drKaufmanFallback = '/lovable-uploads/4d4953a6-4f5d-416c-b045-c967e845b331.png';
-const userUploadPath = '/lovable-uploads/0ff84d35-b518-4383-8c55-afed219acbfe.png';
 
 const HeroSection = () => {
-  const [aiImageSrc, setAiImageSrc] = useState<string | null>(null);
-
-  useEffect(() => {
-    // Clear any old cached version to force regeneration with new settings
-    localStorage.removeItem('aiHeadshotV1');
-    
-    // Use the original uploaded image immediately as a visible placeholder
-    // Keep default fallback while AI generates
-
-    // Generate new AI image from the user's upload
-    const run = async () => {
-      console.log('Starting AI headshot generation...');
-      toast('Enhancing your headshot with AI... this may take ~10–20s on first run');
-
-      const resp = await fetch(userUploadPath, { cache: 'no-store' });
-      if (!resp.ok) {
-        throw new Error(`Failed to fetch source image: ${resp.status}`);
-      }
-      const blob = await resp.blob();
-      const imgEl = await loadImage(blob);
-      const bgRemovedBlob = await removeBackground(imgEl);
-
-      const objectUrl = URL.createObjectURL(bgRemovedBlob);
-      setAiImageSrc(objectUrl);
-
-      // Persist to localStorage as base64 for subsequent loads
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64 = reader.result as string;
-        localStorage.setItem('aiHeadshotV1', base64);
-        toast.success('New headshot generated and applied');
-      };
-      reader.readAsDataURL(bgRemovedBlob);
-    };
-
-    run().catch((err) => {
-      console.error('AI headshot generation failed:', err);
-      toast.error('Could not generate AI image. Showing default photo.');
-      setAiImageSrc(null);
-    });
-  }, []);
-
   return (
     <section className="medical-hero min-h-[90vh] sm:min-h-[80vh] flex items-center py-8 sm:py-16 relative overflow-hidden">
       {/* Enhanced Background */}
@@ -146,25 +98,6 @@ const HeroSection = () => {
           {/* Professional Image */}
           <div className="relative order-first lg:order-last">
             <div className="relative z-10">
-              {aiImageSrc ? (
-                <img
-                  src={aiImageSrc}
-                  alt="AI-enhanced headshot of Dr. Erick Kaufman, MD"
-                  className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
-                  loading="lazy"
-                  decoding="async"
-                  width={400}
-                  height={500}
-                  onError={() => {
-                    console.warn('AI image failed to load, showing fallback');
-                    setAiImageSrc(null);
-                  }}
-                  style={{
-                    objectFit: 'cover',
-                    objectPosition: 'center top',
-                  }}
-                />
-              ) : (
                 <picture>
                   <source srcSet={drKaufmanOptimized} type="image/webp" />
                   <img
@@ -184,7 +117,6 @@ const HeroSection = () => {
                     }}
                   />
                 </picture>
-              )}
               
               {/* Credentials Badge */}
               <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white p-3 sm:p-4 rounded-xl shadow-lg border border-medical-gray-200">
