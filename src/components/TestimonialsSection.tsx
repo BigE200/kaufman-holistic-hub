@@ -60,9 +60,8 @@ const TestimonialsSection = () => {
           </h3>
           <div className="max-w-4xl mx-auto">
             <div 
-              id="trustmary-reviews" 
               dangerouslySetInnerHTML={{
-                __html: `<script>tmary('widget', 'FMR_h57yjB');</script>`
+                __html: `<script src="https://widget.trustmary.com/5E_w2jEe4"></script>`
               }}
             />
           </div>
