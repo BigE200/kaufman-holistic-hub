@@ -100,9 +100,12 @@ const HeroSection = () => {
                 src={drKaufmanImage}
                 alt="Dr. Erick Kaufman, MD - Integrative Medicine Physician"
                 className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
-                loading="eager"
+                loading="lazy"
+                decoding="async"
                 width="400"
                 height="500"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                style={{ contentVisibility: 'auto', containIntrinsicSize: '400px 500px' }}
               />
               
               {/* Credentials Badge */}
