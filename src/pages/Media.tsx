@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import AIChat from '@/components/AIChat';
 
 const Media = () => {
   const [activeVideo, setActiveVideo] = useState(null);
@@ -349,6 +350,7 @@ const Media = () => {
         </div>
       </section>
       <Footer />
+      <AIChat />
     </div>
   );
 };

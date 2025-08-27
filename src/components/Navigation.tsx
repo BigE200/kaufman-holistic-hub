@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navigation = () => {
@@ -47,9 +47,19 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
+            <Button
+              onClick={() => {
+                const event = new CustomEvent('openAIChat');
+                window.dispatchEvent(event);
+              }}
+              className="bg-medical-primary text-white hover:bg-medical-accent ml-4 text-sm px-4 py-2"
+            >
+              <Bot className="mr-2 h-4 w-4" />
+              Ask AI Erick
+            </Button>
             <Button 
               variant="outline" 
-              className="medical-button-primary ml-4 text-sm px-4 py-2"
+              className="medical-button-primary ml-2 text-sm px-4 py-2"
               asChild
             >
               <a 
@@ -93,7 +103,18 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-              <div className="px-3 py-2">
+              <div className="px-3 py-2 space-y-2">
+                <Button
+                  onClick={() => {
+                    const event = new CustomEvent('openAIChat');
+                    window.dispatchEvent(event);
+                    setIsOpen(false);
+                  }}
+                  className="bg-medical-primary text-white hover:bg-medical-accent w-full"
+                >
+                  <Bot className="mr-2 h-4 w-4" />
+                  Ask AI Erick
+                </Button>
                 <Button 
                   variant="outline" 
                   className="medical-button-primary w-full"

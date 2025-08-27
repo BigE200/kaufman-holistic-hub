@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import AIChat from '@/components/AIChat';
 import drKaufmanImage from '@/assets/dr-kaufman-headshot.jpg';
 
 const About = () => {
@@ -270,6 +271,7 @@ const About = () => {
         </div>
       </section>
       <Footer />
+      <AIChat />
     </div>
   );
 };

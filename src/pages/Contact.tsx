@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import AIChat from '@/components/AIChat';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -314,6 +315,7 @@ const Contact = () => {
         </div>
       </div>
       <Footer />
+      <AIChat />
     </div>
   );
 };

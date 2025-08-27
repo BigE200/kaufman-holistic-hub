@@ -33,6 +33,16 @@ const AIChat = () => {
     scrollToBottom();
   }, [messages]);
 
+  // Listen for navigation trigger
+  useEffect(() => {
+    const handleOpenAIChat = () => {
+      setIsOpen(true);
+    };
+    
+    window.addEventListener('openAIChat', handleOpenAIChat);
+    return () => window.removeEventListener('openAIChat', handleOpenAIChat);
+  }, []);
+
   const quickResponses = [
     "What is integrative medicine?",
     "How can medical cannabis help me?",
@@ -104,13 +114,23 @@ const AIChat = () => {
   if (!isOpen) {
     return (
       <div className="fixed bottom-6 right-6 z-50">
-        <Button
-          onClick={() => setIsOpen(true)}
-          className="h-14 w-14 rounded-full bg-medical-primary hover:bg-medical-accent shadow-lg hover:shadow-xl transition-all duration-300"
-          aria-label="Open AI Chat Assistant"
-        >
-          <MessageCircle className="h-6 w-6 text-white" />
-        </Button>
+        <div className="relative group">
+          <Button
+            onClick={() => setIsOpen(true)}
+            className="h-16 w-16 rounded-full bg-medical-primary hover:bg-medical-accent shadow-xl hover:shadow-2xl transition-all duration-300"
+            aria-label="Chat with Dr. Kaufman's AI Assistant"
+          >
+            <div className="relative">
+              <Bot className="h-7 w-7 text-white group-hover:scale-110 transition-transform duration-300" />
+              <div className="absolute -top-1 -right-1 h-3 w-3 bg-trust-blue rounded-full animate-pulse"></div>
+            </div>
+          </Button>
+          
+          {/* Floating label for clarity */}
+          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-white text-professional-navy text-xs font-medium px-3 py-1 rounded-full shadow-md border border-medical-gray-200 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Ask AI Erick
+          </div>
+        </div>
       </div>
     );
   }
@@ -125,8 +145,8 @@ const AIChat = () => {
                 <Bot className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-semibold text-sm">Dr. Kaufman AI Assistant</h3>
-                <p className="text-xs text-white/80">Online • Holistic Healthcare Help</p>
+                <h3 className="font-semibold text-sm">Ask AI Erick</h3>
+                <p className="text-xs text-white/80">Online • Integrative Medicine Help</p>
               </div>
             </div>
             <Button

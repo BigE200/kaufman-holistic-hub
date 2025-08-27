@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import AIChat from '@/components/AIChat';
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -264,6 +265,7 @@ const Blog = () => {
         </div>
       </section>
       <Footer />
+      <AIChat />
     </div>
   );
 };
