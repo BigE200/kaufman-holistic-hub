@@ -21,6 +21,9 @@ const HeroSection = () => {
       return;
     }
 
+    // Use the original uploaded image immediately as a visible placeholder
+    setAiImageSrc(userUploadPath);
+
     // Generate new AI image from the user's upload
     const run = async () => {
       console.log('Starting AI headshot generation...');
@@ -49,8 +52,8 @@ const HeroSection = () => {
 
     run().catch((err) => {
       console.error('AI headshot generation failed:', err);
-      toast.error('Could not generate AI image. Showing default photo.');
-      setAiImageSrc(null);
+      toast.error('Could not generate AI image. Using your original photo.');
+      setAiImageSrc(userUploadPath);
     });
   }, []);
 
@@ -157,8 +160,8 @@ const HeroSection = () => {
                   width={400}
                   height={500}
                   onError={() => {
-                    console.warn('AI image failed to load, reverting to fallback');
-                    setAiImageSrc(null);
+                    console.warn('AI image failed to load, reverting to original upload');
+                    setAiImageSrc(userUploadPath);
                   }}
                   style={{
                     contentVisibility: 'auto',
