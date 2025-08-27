@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 import drKaufmanOptimized from '@/assets/dr-kaufman-optimized.webp';
+const drKaufmanNew = '/lovable-uploads/0ff84d35-b518-4383-8c55-afed219acbfe.png';
 const drKaufmanFallback = '/lovable-uploads/4d4953a6-4f5d-416c-b045-c967e845b331.png';
 
 const HeroSection = () => {
@@ -100,7 +101,7 @@ const HeroSection = () => {
               <picture>
                 <source srcSet={drKaufmanOptimized} type="image/webp" />
                 <img
-                  src={drKaufmanFallback}
+                  src={drKaufmanNew}
                   alt="Dr. Erick Kaufman, MD - Board Certified Integrative Medicine Physician specializing in medical cannabis and holistic healthcare"
                   className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
                   loading="lazy"
@@ -108,7 +109,12 @@ const HeroSection = () => {
                   width="400"
                   height="500"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-                  style={{ contentVisibility: 'auto', containIntrinsicSize: '400px 500px' }}
+                  style={{ 
+                    contentVisibility: 'auto', 
+                    containIntrinsicSize: '400px 500px',
+                    objectFit: 'cover',
+                    objectPosition: 'center top'
+                  }}
                 />
               </picture>
               
