@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
-const drKaufmanImage = '/lovable-uploads/4d4953a6-4f5d-416c-b045-c967e845b331.png';
+import drKaufmanOptimized from '@/assets/dr-kaufman-optimized.webp';
+const drKaufmanFallback = '/lovable-uploads/4d4953a6-4f5d-416c-b045-c967e845b331.png';
 
 const HeroSection = () => {
   return (
@@ -96,17 +97,20 @@ const HeroSection = () => {
           {/* Professional Image */}
           <div className="relative order-first lg:order-last">
             <div className="relative z-10">
-              <img
-                src={drKaufmanImage}
-                alt="Dr. Erick Kaufman, MD - Integrative Medicine Physician"
-                className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
-                loading="lazy"
-                decoding="async"
-                width="400"
-                height="500"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-                style={{ contentVisibility: 'auto', containIntrinsicSize: '400px 500px' }}
-              />
+              <picture>
+                <source srcSet={drKaufmanOptimized} type="image/webp" />
+                <img
+                  src={drKaufmanFallback}
+                  alt="Dr. Erick Kaufman, MD - Board Certified Integrative Medicine Physician specializing in medical cannabis and holistic healthcare"
+                  className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="500"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                  style={{ contentVisibility: 'auto', containIntrinsicSize: '400px 500px' }}
+                />
+              </picture>
               
               {/* Credentials Badge */}
               <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white p-3 sm:p-4 rounded-xl shadow-lg border border-medical-gray-200">

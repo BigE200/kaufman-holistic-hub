@@ -259,4 +259,25 @@
   .bg-medical-gray-50 {
     background-color: hsl(var(--medical-gray-50));
   }
+
+  /* Critical performance optimizations */
+  .medical-hero {
+    contain: layout style paint;
+  }
+
+  /* WebP support check */
+  .webp .hero-image {
+    background-image: url('./assets/dr-kaufman-optimized.webp');
+  }
+
+  /* Resource hints */
+  img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  img[loading="lazy"].loaded,
+  img:not([loading="lazy"]) {
+    opacity: 1;
+  }
 }
