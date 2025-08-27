@@ -16,7 +16,7 @@ const AIChat = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hello! I'm Dr. Kaufman's AI assistant. I can help answer questions about integrative medicine, medical cannabis, and holistic healthcare. How can I assist you today?",
+      text: "Hello! I'm Dr. Kaufman's AI assistant. I can help answer questions about integrative medicine, alternative therapies, and holistic healthcare. How can I assist you today?",
       sender: 'bot',
       timestamp: new Date(),
     },
@@ -45,7 +45,7 @@ const AIChat = () => {
 
   const quickResponses = [
     "What is integrative medicine?",
-    "How can medical cannabis help me?",
+    "How can alternative medicine help me?",
     "What are your telehealth services?",
     "How do I schedule a consultation?",
   ];
@@ -54,11 +54,11 @@ const AIChat = () => {
     const lowerMessage = userMessage.toLowerCase();
     
     if (lowerMessage.includes('integrative medicine') || lowerMessage.includes('holistic')) {
-      return "Integrative medicine combines conventional medical treatments with evidence-based complementary therapies. Dr. Kaufman focuses on treating the whole person, addressing root causes rather than just symptoms, and incorporating therapies like medical cannabis when appropriate.";
+      return "Integrative medicine combines conventional medical treatments with evidence-based complementary therapies. Dr. Kaufman focuses on treating the whole person, addressing root causes rather than just symptoms, and incorporating plant-based therapies when appropriate.";
     }
     
-    if (lowerMessage.includes('cannabis') || lowerMessage.includes('marijuana')) {
-      return "Medical cannabis can be effective for various conditions including chronic pain, anxiety, PTSD, and certain neurological disorders. Dr. Kaufman provides medical cannabis certifications and guidance through Holistically Rx and Docs of Cannabis platforms.";
+    if (lowerMessage.includes('alternative') || lowerMessage.includes('plant')) {
+      return "Alternative medicine and plant-based therapies can be effective for various conditions including chronic pain, anxiety, PTSD, and certain neurological disorders. Dr. Kaufman provides specialized certifications and guidance through Holistically Rx and Docs of Cannabis platforms.";
     }
     
     if (lowerMessage.includes('telehealth') || lowerMessage.includes('consultation') || lowerMessage.includes('appointment')) {
@@ -232,7 +232,7 @@ const AIChat = () => {
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Ask about integrative medicine, medical cannabis..."
+                placeholder="Ask about integrative medicine, alternative therapies..."
                 className="flex-1 text-sm border-medical-gray-200 focus:border-medical-primary"
               />
               <Button

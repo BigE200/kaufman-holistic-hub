@@ -19,7 +19,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-medical-gray-600 mb-6 max-w-md">
-              Pioneering integrative medicine and medical cannabis through patient-centered care, 
+              Pioneering integrative medicine and alternative therapies through patient-centered care, 
               transparency, and innovative telehealth solutions.
             </p>
             

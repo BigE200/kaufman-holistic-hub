@@ -34,8 +34,8 @@ const TrustSection = () => {
       name: "Sarah M.",
       location: "Oklahoma",
       rating: 5,
-      text: "Dr. Kaufman transformed my approach to chronic pain management. His holistic methods with medical cannabis have given me my life back.",
-      treatment: "Medical Cannabis Certification"
+      text: "Dr. Kaufman transformed my approach to chronic pain management. His holistic methods with alternative therapies have given me my life back.",
+      treatment: "Alternative Medicine Certification"
     },
     {
       name: "Michael R.",

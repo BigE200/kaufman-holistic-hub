@@ -10,9 +10,9 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({ 
-  title = "Dr. Erick Kaufman, MD - Board Certified Integrative Medicine & Medical Cannabis Expert",
-  description = "Dr. Erick Kaufman, MD - Board Certified physician specializing in integrative medicine and medical cannabis. Founder of Holistically Rx & Docs of Cannabis. Telehealth consultations available.",
-  keywords = "Dr Erick Kaufman MD, integrative medicine, medical cannabis doctor, telehealth physician, holistic healthcare, cannabis certification, chronic pain treatment",
+  title = "Dr. Erick Kaufman, MD - Board Certified Integrative Medicine & Alternative Medicine Expert",
+  description = "Dr. Erick Kaufman, MD - Board Certified physician specializing in integrative medicine and alternative therapies. Founder of Holistically Rx & Docs of Cannabis. Telehealth consultations available.",
+  keywords = "Dr Erick Kaufman MD, integrative medicine, alternative medicine doctor, telehealth physician, holistic healthcare, plant-based medicine, chronic pain treatment",
   canonical,
   ogImage = "/dr-kaufman-social.jpg",
   noIndex = false

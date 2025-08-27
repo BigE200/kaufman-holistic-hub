@@ -1,13 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ArrowRight, Heart, Brain, Leaf, Shield, Zap, Stethoscope, Cannabis, Users } from 'lucide-react';
+import { ArrowRight, Heart, Brain, Leaf, Shield, Zap, Stethoscope, Users } from 'lucide-react';
 
 const HealthCategoriesSection = () => {
   const categories = [
     {
-      title: "Cannabis Medicine",
-      description: "Medical cannabis recommendations and education",
-      icon: Cannabis,
+      title: "Alternative Medicine",
+      description: "Plant-based therapies and alternative treatments",
+      icon: Leaf,
       color: "text-wellness-green",
       bgColor: "bg-wellness-green/10",
       path: "/cannabis-medicine"

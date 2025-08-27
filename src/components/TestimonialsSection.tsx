@@ -6,14 +6,14 @@ const TestimonialsSection = () => {
     {
       name: "Sarah M.",
       condition: "Chronic Pain Patient",
-      quote: "Dr. Kaufman's approach to cannabis medicine changed my life. For the first time in years, I'm managing my chronic pain effectively without harsh pharmaceuticals.",
+      quote: "Dr. Kaufman's approach to alternative medicine changed my life. For the first time in years, I'm managing my chronic pain effectively without harsh pharmaceuticals.",
       rating: 5,
       location: "Oklahoma City, OK"
     },
     {
       name: "Michael R.", 
       condition: "Anxiety & PTSD",
-      quote: "The comprehensive care and education I received about medical cannabis was exceptional. Dr. Kaufman took time to understand my specific needs.",
+      quote: "The comprehensive care and education I received about alternative therapies was exceptional. Dr. Kaufman took time to understand my specific needs.",
       rating: 5,
       location: "Tulsa, OK"
     },
@@ -49,7 +49,7 @@ const TestimonialsSection = () => {
             Patient <span className="text-medical-primary">Success Stories</span>
           </h2>
           <p className="text-lg sm:text-xl text-medical-gray-600 max-w-3xl mx-auto">
-            Real patients sharing their transformative experiences with integrative and cannabis medicine
+            Real patients sharing their transformative experiences with integrative and alternative medicine
           </p>
         </div>
 

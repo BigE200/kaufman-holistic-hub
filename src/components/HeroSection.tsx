@@ -30,7 +30,7 @@ const HeroSection = () => {
               </h1>
               
               <p className="text-lg sm:text-xl text-medical-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                The most trusted name in cannabis and integrative medicine. 
+                The most trusted name in integrative and alternative medicine. 
                 Erick Kaufman MD is your dedicated partner on the path to your best life. 
                 Premium solutions to optimize your health, embodying a legacy of trust, innovation, and transformative care.
               </p>
@@ -40,7 +40,7 @@ const HeroSection = () => {
             <div className="bg-white/70 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-medical-gray-200">
               <h3 className="font-semibold text-professional-navy mb-2 text-base sm:text-lg">Our Mission</h3>
               <p className="text-medical-gray-600 italic text-sm sm:text-base">
-                "Making holistic, cannabis-based, and accessible healthcare transparent and trustworthy"
+                "Making holistic, evidence-based, and accessible healthcare transparent and trustworthy"
               </p>
             </div>
 
@@ -102,7 +102,7 @@ const HeroSection = () => {
                   <source srcSet={drKaufmanOptimized} type="image/webp" />
                   <img
                     src={drKaufmanImage}
-                    alt="Dr. Erick Kaufman, MD - Board Certified Integrative Medicine Physician specializing in medical cannabis and holistic healthcare"
+                    alt="Dr. Erick Kaufman, MD - Board Certified Integrative Medicine Physician specializing in alternative medicine and holistic healthcare"
                     className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
                     fetchPriority="high"
                     decoding="async"

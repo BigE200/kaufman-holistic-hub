@@ -18,7 +18,7 @@ const NewsletterSection = () => {
   const benefits = [
     {
       icon: Leaf,
-      title: "Cannabis Medicine Updates",
+      title: "Alternative Medicine Updates",
       description: "Latest research and treatment protocols"
     },
     {
@@ -46,7 +46,7 @@ const NewsletterSection = () => {
                 Stay Informed About Your <span className="text-medical-primary">Health Journey</span>
               </h2>
               <p className="text-lg text-medical-gray-600 max-w-2xl mx-auto">
-                Get exclusive insights on integrative medicine, cannabis therapeutics, and personalized wellness strategies delivered to your inbox.
+                Get exclusive insights on integrative medicine, alternative therapeutics, and personalized wellness strategies delivered to your inbox.
               </p>
             </div>
 
