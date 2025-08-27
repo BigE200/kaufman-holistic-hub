@@ -13,14 +13,9 @@ const HeroSection = () => {
   const [aiImageSrc, setAiImageSrc] = useState<string | null>(null);
 
   useEffect(() => {
-    // Try to use previously generated AI image if available
-    const stored = localStorage.getItem('aiHeadshotV1');
-    if (stored) {
-      console.log('Using cached AI headshot');
-      setAiImageSrc(stored);
-      return;
-    }
-
+    // Clear any old cached version to force regeneration with new settings
+    localStorage.removeItem('aiHeadshotV1');
+    
     // Use the original uploaded image immediately as a visible placeholder
     setAiImageSrc(userUploadPath);
 
