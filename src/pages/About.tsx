@@ -5,6 +5,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import AIChat from '@/components/AIChat';
 import SEOHead from '@/components/SEOHead';
+import drKaufmanOptimized from '@/assets/dr-kaufman-optimized.webp';
 import drKaufmanImage from '@/assets/dr-kaufman-headshot.jpg';
 
 const About = () => {
@@ -78,11 +79,25 @@ const About = () => {
             </div>
             
             <div className="relative">
-              <img
-                src={drKaufmanImage}
-                alt="Dr. Erick Kaufman, MD"
-                className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
-              />
+              <picture>
+                <source srcSet={drKaufmanOptimized} type="image/webp" />
+                <img
+                  src={drKaufmanImage}
+                  alt="Dr. Erick Kaufman, MD - Board Certified Integrative Medicine Physician specializing in alternative medicine and holistic healthcare"
+                  className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
+                  fetchPriority="high"
+                  decoding="async"
+                  width={400}
+                  height={500}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                  style={{ 
+                    contentVisibility: 'auto', 
+                    containIntrinsicSize: '400px 500px',
+                    objectFit: 'cover',
+                    objectPosition: 'center top'
+                  }}
+                />
+              </picture>
             </div>
           </div>
         </div>
