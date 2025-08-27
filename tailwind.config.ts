@@ -18,12 +18,33 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				// Medical Brand Colors
+				'medical-primary': 'hsl(var(--medical-primary))',
+				'medical-primary-light': 'hsl(var(--medical-primary-light))',
+				'medical-secondary': 'hsl(var(--medical-secondary))',
+				'medical-accent': 'hsl(var(--medical-accent))',
+				'trust-blue': 'hsl(var(--trust-blue))',
+				'trust-blue-light': 'hsl(var(--trust-blue-light))',
+				'professional-navy': 'hsl(var(--professional-navy))',
+				'wellness-green': 'hsl(var(--wellness-green))',
+				'medical-gray': {
+					50: 'hsl(var(--medical-gray-50))',
+					100: 'hsl(var(--medical-gray-100))',
+					200: 'hsl(var(--medical-gray-200))',
+					300: 'hsl(var(--medical-gray-300))',
+					600: 'hsl(var(--medical-gray-600))',
+					900: 'hsl(var(--medical-gray-900))',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

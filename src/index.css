@@ -1,15 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Dr. Erick Kaufman Medical Branding Design System */
 
 @layer base {
   :root {
+    /* Medical Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 216 16% 15%;
+    
+    /* Medical Green Theme */
+    --medical-primary: 156 39% 40%;
+    --medical-primary-light: 156 39% 85%;
+    --medical-secondary: 200 100% 45%;
+    --medical-accent: 156 100% 35%;
+    
+    /* Trust & Professional */
+    --trust-blue: 217 91% 60%;
+    --trust-blue-light: 217 91% 95%;
+    --professional-navy: 221 39% 11%;
+    --wellness-green: 142 76% 36%;
+    
+    /* Neutral Medical Palette */
+    --medical-gray-50: 210 20% 98%;
+    --medical-gray-100: 210 20% 95%;
+    --medical-gray-200: 210 16% 88%;
+    --medical-gray-300: 210 14% 78%;
+    --medical-gray-600: 210 11% 46%;
+    --medical-gray-900: 216 16% 15%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -17,11 +38,11 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: var(--medical-primary);
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--medical-gray-100);
+    --secondary-foreground: var(--medical-gray-900);
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -100,6 +121,60 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  /* Medical Professional Components */
+  .medical-hero {
+    @apply bg-gradient-to-br from-medical-primary/5 via-trust-blue-light/30 to-medical-primary-light/20;
+  }
+  
+  .trust-card {
+    @apply bg-white border border-medical-gray-200 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  
+  .medical-button-primary {
+    @apply bg-medical-primary hover:bg-medical-accent text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200;
+  }
+  
+  .medical-button-secondary {
+    @apply bg-trust-blue hover:bg-trust-blue/90 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200;
+  }
+  
+  .medical-section {
+    @apply py-16 px-4;
+  }
+  
+  .professional-nav {
+    @apply bg-white/95 backdrop-blur-sm border-b border-medical-gray-200;
+  }
+}
+
+@layer utilities {
+  .text-medical-primary {
+    color: hsl(var(--medical-primary));
+  }
+  
+  .text-trust-blue {
+    color: hsl(var(--trust-blue));
+  }
+  
+  .text-professional-navy {
+    color: hsl(var(--professional-navy));
+  }
+  
+  .bg-medical-primary {
+    background-color: hsl(var(--medical-primary));
+  }
+  
+  .bg-trust-blue {
+    background-color: hsl(var(--trust-blue));
+  }
+  
+  .bg-medical-gray-50 {
+    background-color: hsl(var(--medical-gray-50));
   }
 }
