@@ -35,13 +35,13 @@ const Navigation = () => {
       </div>
 
       {/* Main Navigation */}
-      <nav className="professional-nav sticky top-0 z-50">
+      <nav className="professional-nav sticky top-0 z-50" role="navigation" aria-label="Main navigation">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14 sm:h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2" aria-label="Dr. Erick Kaufman homepage">
               <div className="w-7 h-7 sm:w-8 sm:h-8 bg-medical-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xs sm:text-sm">EK</span>
+                <span className="text-white font-bold text-xs sm:text-sm" aria-hidden="true">EK</span>
               </div>
               <span className="font-semibold text-professional-navy text-base sm:text-lg truncate">
                 Erick Kaufman MD
@@ -95,8 +95,10 @@ const Navigation = () => {
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
               className="text-medical-gray-600"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
             </Button>
           </div>
         </div>
