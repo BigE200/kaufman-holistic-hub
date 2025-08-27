@@ -45,18 +45,23 @@ const Footer = () => {
             <h4 className="font-semibold text-professional-navy mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
+                <Link to="/" className="text-medical-gray-600 hover:text-medical-primary">
+                  Home
+                </Link>
+              </li>
+              <li>
                 <Link to="/about" className="text-medical-gray-600 hover:text-medical-primary">
-                  About Dr. Kaufman
+                  About
                 </Link>
               </li>
               <li>
                 <Link to="/blog" className="text-medical-gray-600 hover:text-medical-primary">
-                  Medical Insights
+                  Content Library
                 </Link>
               </li>
               <li>
                 <Link to="/media" className="text-medical-gray-600 hover:text-medical-primary">
-                  Podcast & Media
+                  Media
                 </Link>
               </li>
               <li>
