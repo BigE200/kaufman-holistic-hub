@@ -12,17 +12,17 @@
     --background: 0 0% 100%;
     --foreground: 216 16% 15%;
     
-    /* Medical Green Theme */
-    --medical-primary: 156 39% 40%;
-    --medical-primary-light: 156 39% 85%;
-    --medical-secondary: 200 100% 45%;
-    --medical-accent: 156 100% 35%;
+    /* Health-Focused Color Palette */
+    --medical-primary: 122 39% 49%;
+    --medical-primary-light: 122 39% 85%;
+    --medical-secondary: 207 90% 54%;
+    --medical-accent: 122 39% 40%;
     
     /* Trust & Professional */
-    --trust-blue: 217 91% 60%;
-    --trust-blue-light: 217 91% 95%;
+    --trust-blue: 207 90% 54%;
+    --trust-blue-light: 207 90% 95%;
     --professional-navy: 221 39% 11%;
-    --wellness-green: 142 76% 36%;
+    --wellness-green: 122 39% 49%;
     
     /* Neutral Medical Palette */
     --medical-gray-50: 210 20% 98%;
