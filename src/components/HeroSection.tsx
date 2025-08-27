@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
-import drKaufmanOptimized from '@/assets/dr-kaufman-optimized.webp';
-const drKaufmanNew = '/lovable-uploads/0ff84d35-b518-4383-8c55-afed219acbfe.png';
-const drKaufmanFallback = '/lovable-uploads/4d4953a6-4f5d-416c-b045-c967e845b331.png';
+import drKaufmanOptimized from '@/assets/dr-kaufman-web-optimized.webp';
+const drKaufmanNew = 'public/lovable-uploads/0ff84d35-b518-4383-8c55-afed219acbfe.png';
+const drKaufmanFallback = 'public/lovable-uploads/4d4953a6-4f5d-416c-b045-c967e845b331.png';
 
 const HeroSection = () => {
   return (
@@ -101,7 +101,7 @@ const HeroSection = () => {
               <picture>
                 <source srcSet={drKaufmanOptimized} type="image/webp" />
                 <img
-                  src={drKaufmanNew}
+                  src={drKaufmanOptimized}
                   alt="Dr. Erick Kaufman, MD - Board Certified Integrative Medicine Physician specializing in medical cannabis and holistic healthcare"
                   className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
                   loading="lazy"
