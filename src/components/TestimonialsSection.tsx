@@ -53,6 +53,21 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
+        {/* Verified Patient Reviews - Trustmary */}
+        <div className="text-center mb-16">
+          <h3 className="text-2xl sm:text-3xl font-bold text-professional-navy mb-8">
+            Verified Patient Reviews
+          </h3>
+          <div className="max-w-4xl mx-auto">
+            <div 
+              id="trustmary-reviews" 
+              dangerouslySetInnerHTML={{
+                __html: `<script>tmary('widget', 'FMR_h57yjB');</script>`
+              }}
+            />
+          </div>
+        </div>
+
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, index) => (
