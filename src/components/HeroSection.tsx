@@ -4,6 +4,7 @@ import { ArrowRight, PlayCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import drKaufmanOptimized from '@/assets/dr-kaufman-optimized.webp';
+import drKaufmanImage from '@/assets/dr-kaufman-headshot.jpg';
 import { removeBackground, loadImage } from '@/lib/imageAI';
 
 const drKaufmanFallback = '/lovable-uploads/4d4953a6-4f5d-416c-b045-c967e845b331.png';
@@ -17,7 +18,7 @@ const HeroSection = () => {
     localStorage.removeItem('aiHeadshotV1');
     
     // Use the original uploaded image immediately as a visible placeholder
-    setAiImageSrc(userUploadPath);
+    // Keep default fallback while AI generates
 
     // Generate new AI image from the user's upload
     const run = async () => {
@@ -47,8 +48,8 @@ const HeroSection = () => {
 
     run().catch((err) => {
       console.error('AI headshot generation failed:', err);
-      toast.error('Could not generate AI image. Using your original photo.');
-      setAiImageSrc(userUploadPath);
+      toast.error('Could not generate AI image. Showing default photo.');
+      setAiImageSrc(null);
     });
   }, []);
 
@@ -155,12 +156,10 @@ const HeroSection = () => {
                   width={400}
                   height={500}
                   onError={() => {
-                    console.warn('AI image failed to load, reverting to original upload');
-                    setAiImageSrc(userUploadPath);
+                    console.warn('AI image failed to load, showing fallback');
+                    setAiImageSrc(null);
                   }}
                   style={{
-                    contentVisibility: 'auto',
-                    containIntrinsicSize: '400px 500px',
                     objectFit: 'cover',
                     objectPosition: 'center top',
                   }}
@@ -169,7 +168,7 @@ const HeroSection = () => {
                 <picture>
                   <source srcSet={drKaufmanOptimized} type="image/webp" />
                   <img
-                    src={drKaufmanFallback}
+                    src={drKaufmanImage}
                     alt="Dr. Erick Kaufman, MD - Board Certified Integrative Medicine Physician specializing in medical cannabis and holistic healthcare"
                     className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
                     loading="lazy"
