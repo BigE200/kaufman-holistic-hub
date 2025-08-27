@@ -1,9 +1,59 @@
+
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
 import drKaufmanOptimized from '@/assets/dr-kaufman-optimized.webp';
+import { removeBackground, loadImage } from '@/lib/imageAI';
+
 const drKaufmanFallback = '/lovable-uploads/4d4953a6-4f5d-416c-b045-c967e845b331.png';
+const userUploadPath = '/lovable-uploads/0ff84d35-b518-4383-8c55-afed219acbfe.png';
 
 const HeroSection = () => {
+  const [aiImageSrc, setAiImageSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Try to use previously generated AI image if available
+    const stored = localStorage.getItem('aiHeadshotV1');
+    if (stored) {
+      console.log('Using cached AI headshot');
+      setAiImageSrc(stored);
+      return;
+    }
+
+    // Generate new AI image from the user's upload
+    const run = async () => {
+      console.log('Starting AI headshot generation...');
+      toast('Enhancing your headshot with AI... this may take ~10–20s on first run');
+
+      const resp = await fetch(userUploadPath, { cache: 'no-store' });
+      if (!resp.ok) {
+        throw new Error(`Failed to fetch source image: ${resp.status}`);
+      }
+      const blob = await resp.blob();
+      const imgEl = await loadImage(blob);
+      const bgRemovedBlob = await removeBackground(imgEl);
+
+      const objectUrl = URL.createObjectURL(bgRemovedBlob);
+      setAiImageSrc(objectUrl);
+
+      // Persist to localStorage as base64 for subsequent loads
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64 = reader.result as string;
+        localStorage.setItem('aiHeadshotV1', base64);
+        toast.success('New headshot generated and applied');
+      };
+      reader.readAsDataURL(bgRemovedBlob);
+    };
+
+    run().catch((err) => {
+      console.error('AI headshot generation failed:', err);
+      toast.error('Could not generate AI image. Showing default photo.');
+      setAiImageSrc(null);
+    });
+  }, []);
+
   return (
     <section className="medical-hero min-h-[90vh] sm:min-h-[80vh] flex items-center py-8 sm:py-16 relative overflow-hidden">
       {/* Enhanced Background */}
@@ -97,25 +147,47 @@ const HeroSection = () => {
           {/* Professional Image */}
           <div className="relative order-first lg:order-last">
             <div className="relative z-10">
-              <picture>
-                <source srcSet={drKaufmanOptimized} type="image/webp" />
+              {aiImageSrc ? (
                 <img
-                  src={drKaufmanFallback}
-                  alt="Dr. Erick Kaufman, MD - Board Certified Integrative Medicine Physician specializing in medical cannabis and holistic healthcare"
+                  src={aiImageSrc}
+                  alt="AI-enhanced headshot of Dr. Erick Kaufman, MD"
                   className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
                   loading="lazy"
                   decoding="async"
                   width={400}
                   height={500}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-                  style={{ 
-                    contentVisibility: 'auto', 
+                  onError={() => {
+                    console.warn('AI image failed to load, reverting to fallback');
+                    setAiImageSrc(null);
+                  }}
+                  style={{
+                    contentVisibility: 'auto',
                     containIntrinsicSize: '400px 500px',
                     objectFit: 'cover',
-                    objectPosition: 'center top'
+                    objectPosition: 'center top',
                   }}
                 />
-              </picture>
+              ) : (
+                <picture>
+                  <source srcSet={drKaufmanOptimized} type="image/webp" />
+                  <img
+                    src={drKaufmanFallback}
+                    alt="Dr. Erick Kaufman, MD - Board Certified Integrative Medicine Physician specializing in medical cannabis and holistic healthcare"
+                    className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
+                    loading="lazy"
+                    decoding="async"
+                    width={400}
+                    height={500}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                    style={{ 
+                      contentVisibility: 'auto', 
+                      containIntrinsicSize: '400px 500px',
+                      objectFit: 'cover',
+                      objectPosition: 'center top'
+                    }}
+                  />
+                </picture>
+              )}
               
               {/* Credentials Badge */}
               <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white p-3 sm:p-4 rounded-xl shadow-lg border border-medical-gray-200">
