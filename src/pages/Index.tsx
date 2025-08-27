@@ -2,6 +2,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/HeroSection';
 import TrustSection from '@/components/TrustSection';
+import AIChat from '@/components/AIChat';
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
         <TrustSection />
       </main>
       <Footer />
+      <AIChat />
     </div>
   );
 };
