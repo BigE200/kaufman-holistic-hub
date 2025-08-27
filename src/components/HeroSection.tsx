@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
-import drKaufmanImage from '@/assets/dr-kaufman-headshot.jpg';
+const drKaufmanImage = '/lovable-uploads/4d4953a6-4f5d-416c-b045-c967e845b331.png';
 
 const HeroSection = () => {
   return (
