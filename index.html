@@ -24,18 +24,23 @@
     <meta name="twitter:description" content="Board certified physician specializing in integrative medicine and medical cannabis. Personalized healthcare solutions." />
     <meta name="twitter:image" content="https://drerickkaufman.com/dr-kaufman-social.jpg" />
     
-    <!-- Critical CSS for above-the-fold -->
+    <!-- Critical CSS for above-the-fold performance -->
     <style>
-      :root{--medical-primary:142 69 133;--trust-blue:59 130 246;--professional-navy:30 41 59;--medical-gray-700:55 65 81;--background:0 0% 100%;--foreground:222.2 84% 4.9%}
-      body{font-family:Inter,system-ui,-apple-system,sans-serif;line-height:1.6;color:hsl(var(--foreground));background:hsl(var(--background))}
-      .medical-hero{background:linear-gradient(135deg,hsl(var(--medical-primary)/.05),hsl(var(--trust-blue)/.1),hsl(142 69 133/.05))}
-      h1{font-family:'Playfair Display',serif;font-weight:700;color:hsl(var(--professional-navy))}
-      .medical-button-primary{background:hsl(var(--medical-primary));color:white;border-radius:0.5rem;padding:0.75rem 1.5rem;font-weight:600;transition:all 0.2s}
+      :root{--medical-primary:122 39% 49%;--trust-blue:207 90% 54%;--professional-navy:221 39% 11%;--medical-gray-700:210 11% 46%;--background:0 0% 100%;--foreground:216 16% 15%;--medical-gray-200:210 16% 88%}
+      body{font-family:Inter,system-ui,-apple-system,sans-serif;line-height:1.6;color:hsl(var(--foreground));background:hsl(var(--background));margin:0}
+      .medical-hero{background:linear-gradient(135deg,hsl(var(--medical-primary)/.05),hsl(var(--trust-blue)/.1),hsl(var(--medical-primary)/.05));min-height:90vh;display:flex;align-items:center}
+      h1{font-family:'Playfair Display',serif;font-weight:700;color:hsl(var(--professional-navy));line-height:1.1;font-size:clamp(2rem,5vw,3.5rem)}
+      .medical-button-primary{background:hsl(var(--medical-primary));color:white;border-radius:0.75rem;padding:1rem 2rem;font-weight:600;transition:all 0.2s;display:inline-flex;align-items:center;text-decoration:none}
+      .hero-container{max-width:80rem;margin:0 auto;padding:0 1rem;display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
+      @media(min-width:1024px){.hero-container{grid-template-columns:1fr 1fr}}
+      .hero-image{border-radius:1rem;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);width:100%;max-width:28rem;height:auto}
     </style>
     
     <!-- Performance optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/src/assets/dr-kaufman-headshot.jpg" as="image" type="image/jpeg">
+    <link rel="preload" href="/src/assets/dr-kaufman-optimized.webp" as="image" type="image/webp">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"></noscript>
     <link rel="dns-prefetch" href="https://holisticallyrx.com">

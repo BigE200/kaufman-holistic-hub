@@ -10,6 +10,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import AIChat from '@/components/AIChat';
+import SEOHead from '@/components/SEOHead';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -67,6 +68,12 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead 
+        title="Contact Dr. Erick Kaufman, MD - Schedule Integrative Medicine Consultation"
+        description="Contact Dr. Erick Kaufman for integrative medicine and medical cannabis consultations. Telehealth appointments available. Board certified physician serving patients nationwide."
+        keywords="contact Dr Erick Kaufman, integrative medicine consultation, medical cannabis appointment, telehealth physician, schedule consultation"
+        canonical="https://drerickkaufman.com/contact"
+      />
       <Navigation />
       {/* Header */}
       <section className="medical-section bg-medical-gray-50">

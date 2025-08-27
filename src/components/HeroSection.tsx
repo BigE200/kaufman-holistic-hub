@@ -50,9 +50,9 @@ const HeroSection = () => {
                 className="medical-button-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto"
                 asChild
               >
-                <a href="/services">
+                <a href="/services" aria-label="Explore Dr. Kaufman's integrative medicine services">
                   Explore Services
-                  <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
+                  <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" aria-hidden="true" />
                 </a>
               </Button>
               
@@ -61,9 +61,9 @@ const HeroSection = () => {
                 className="medical-button-secondary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto"
                 asChild
               >
-                <a href="#testimonials">
+                <a href="#testimonials" aria-label="Read patient testimonials and success stories">
                   Patient Stories
-                  <PlayCircle className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
+                  <PlayCircle className="ml-2 h-4 sm:h-5 w-4 sm:w-5" aria-hidden="true" />
                 </a>
               </Button>
             </div>
@@ -104,7 +104,7 @@ const HeroSection = () => {
                     src={drKaufmanImage}
                     alt="Dr. Erick Kaufman, MD - Board Certified Integrative Medicine Physician specializing in medical cannabis and holistic healthcare"
                     className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
-                    
+                    fetchPriority="high"
                     decoding="async"
                     width={400}
                     height={500}

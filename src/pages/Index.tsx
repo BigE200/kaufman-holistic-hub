@@ -7,10 +7,14 @@ import CredentialsSection from '@/components/CredentialsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import NewsletterSection from '@/components/NewsletterSection';
 import AIChat from '@/components/AIChat';
+import SEOHead from '@/components/SEOHead';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead 
+        canonical="https://drerickkaufman.com/"
+      />
       <Navigation />
       <main>
         <HeroSection />

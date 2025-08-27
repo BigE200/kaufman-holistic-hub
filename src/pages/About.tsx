@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import AIChat from '@/components/AIChat';
+import SEOHead from '@/components/SEOHead';
 import drKaufmanImage from '@/assets/dr-kaufman-headshot.jpg';
 
 const About = () => {
@@ -36,6 +37,12 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead 
+        title="About Dr. Erick Kaufman, MD - Integrative Medicine Physician Biography"
+        description="Learn about Dr. Erick Kaufman's journey from traditional medicine to integrative healthcare. Board certified physician, founder of Holistically Rx and Docs of Cannabis."
+        keywords="Dr Erick Kaufman biography, integrative medicine physician, medical cannabis expert, holistic healthcare, telehealth doctor"
+        canonical="https://drerickkaufman.com/about"
+      />
       <Navigation />
       {/* Hero Section */}
       <section className="medical-section bg-medical-gray-50">

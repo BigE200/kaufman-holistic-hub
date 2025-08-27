@@ -12,24 +12,26 @@
     --background: 0 0% 100%;
     --foreground: 216 16% 15%;
     
-    /* Health-Focused Color Palette */
-    --medical-primary: 122 39% 49%;
+    /* Health-Focused Color Palette - Enhanced Contrast */
+    --medical-primary: 122 39% 45%;
     --medical-primary-light: 122 39% 85%;
     --medical-secondary: 207 90% 54%;
-    --medical-accent: 122 39% 40%;
+    --medical-accent: 122 39% 35%;
     
-    /* Trust & Professional */
-    --trust-blue: 207 90% 54%;
+    /* Trust & Professional - Enhanced Contrast */
+    --trust-blue: 207 90% 48%;
     --trust-blue-light: 207 90% 95%;
-    --professional-navy: 221 39% 11%;
-    --wellness-green: 122 39% 49%;
+    --professional-navy: 221 39% 8%;
+    --wellness-green: 122 39% 45%;
     
-    /* Neutral Medical Palette */
+    /* Neutral Medical Palette - Enhanced Contrast */
     --medical-gray-50: 210 20% 98%;
     --medical-gray-100: 210 20% 95%;
     --medical-gray-200: 210 16% 88%;
     --medical-gray-300: 210 14% 78%;
-    --medical-gray-600: 210 11% 46%;
+    --medical-gray-600: 210 11% 40%;
+    --medical-gray-700: 210 11% 35%;
+    --medical-gray-900: 210 11% 15%;
     
     /* Advanced Design Tokens */
     --gradient-primary: linear-gradient(135deg, hsl(var(--medical-primary)), hsl(var(--trust-blue)));
