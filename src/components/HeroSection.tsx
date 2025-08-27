@@ -4,25 +4,33 @@ import drKaufmanImage from '@/assets/dr-kaufman-headshot.jpg';
 
 const HeroSection = () => {
   return (
-    <section className="medical-hero min-h-[90vh] sm:min-h-[80vh] flex items-center py-8 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="medical-hero min-h-[90vh] sm:min-h-[80vh] flex items-center py-8 sm:py-16 relative overflow-hidden">
+      {/* Enhanced Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-medical-primary/5 via-trust-blue/10 to-wellness-green/5"></div>
+        <div className="absolute top-20 right-20 w-72 h-72 bg-medical-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Content */}
           <div className="space-y-6 lg:space-y-8 text-center lg:text-left">
-            <div className="space-y-3 lg:space-y-4">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-professional-navy leading-tight">
-                Erick Kaufman MD:
+            <div className="space-y-3 lg:space-y-4 animate-fade-in">
+              <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-professional-navy leading-tight">
+                Personalized, 360°{" "}
                 <span className="text-medical-primary block mt-1">
-                  Pioneering Integrative Medicine
+                  integrative medicine
                 </span>
                 <span className="text-trust-blue block mt-1">
-                  and Medical Cannabis
+                  for your well-being
                 </span>
               </h1>
               
-              <p className="text-lg sm:text-xl text-medical-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                From ophthalmology and internal medicine academia to entrepreneurship in 
-                patient-centered care, transforming healthcare through innovation and trust.
+              <p className="text-lg sm:text-xl text-medical-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                The most trusted name in cannabis and integrative medicine. 
+                Erick Kaufman MD is your dedicated partner on the path to your best life. 
+                Premium solutions to optimize your health, embodying a legacy of trust, innovation, and transformative care.
               </p>
             </div>
 
@@ -40,12 +48,8 @@ const HeroSection = () => {
                 className="medical-button-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto"
                 asChild
               >
-                <a 
-                  href="https://www.linkedin.com/in/c-erick-kaufman-md-32a76b26"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Follow on LinkedIn
+                <a href="/services">
+                  Explore Services
                   <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
                 </a>
               </Button>
@@ -55,8 +59,8 @@ const HeroSection = () => {
                 className="medical-button-secondary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto"
                 asChild
               >
-                <a href="#media">
-                  Watch My Podcasts
+                <a href="#testimonials">
+                  Patient Stories
                   <PlayCircle className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
                 </a>
               </Button>
