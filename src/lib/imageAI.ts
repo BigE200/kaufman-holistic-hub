@@ -4,6 +4,15 @@ import { pipeline, env } from '@huggingface/transformers';
 env.allowLocalModels = false;
 env.useBrowserCache = false;
 
+// Force ONNX WebAssembly backend for compatibility (no SharedArrayBuffer requirement)
+// and disable proxy worker to avoid cross-origin/worker restrictions in sandboxes
+const anyEnv: any = env;
+anyEnv.backends = anyEnv.backends ?? {};
+anyEnv.backends.onnx = anyEnv.backends.onnx ?? {};
+anyEnv.backends.onnx.wasm = anyEnv.backends.onnx.wasm ?? {};
+anyEnv.backends.onnx.wasm.numThreads = 1;
+anyEnv.backends.onnx.wasm.proxy = false;
+
 const MAX_IMAGE_DIMENSION = 1024;
 
 function resizeImageIfNeeded(
@@ -37,9 +46,18 @@ function resizeImageIfNeeded(
 
 export const removeBackground = async (imageElement: HTMLImageElement): Promise<Blob> => {
   console.log('Starting background removal process...');
-  const segmenter = await pipeline('image-segmentation', 'Xenova/segformer-b0-finetuned-ade-512-512', {
-    device: 'wasm', // Use WebAssembly for broad compatibility
-  });
+  const segmenter = await (async () => {
+    try {
+      return await pipeline('image-segmentation', 'Xenova/segformer-b0-finetuned-ade-512-512', {
+        device: 'wasm',
+      });
+    } catch (e) {
+      console.warn('Primary model failed, falling back to RMBG-1.4', e);
+      return await pipeline('image-segmentation', 'briaai/RMBG-1.4', {
+        device: 'wasm',
+      });
+    }
+  })();
   
   // Convert HTMLImageElement to canvas
   const canvas = document.createElement('canvas');
