@@ -27,7 +27,7 @@ const Navigation = () => {
               <span className="text-white font-bold text-xs sm:text-sm">EK</span>
             </div>
             <span className="font-semibold text-professional-navy text-base sm:text-lg truncate">
-              Dr. Erick Kaufman, MD
+              Erick Kaufman MD
             </span>
           </Link>
 

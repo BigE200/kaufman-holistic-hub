@@ -11,7 +11,7 @@ const HeroSection = () => {
           <div className="space-y-6 lg:space-y-8 text-center lg:text-left">
             <div className="space-y-3 lg:space-y-4">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-professional-navy leading-tight">
-                Dr. Erick Kaufman, MD:
+                Erick Kaufman MD:
                 <span className="text-medical-primary block mt-1">
                   Pioneering Integrative Medicine
                 </span>
