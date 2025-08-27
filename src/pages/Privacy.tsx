@@ -7,8 +7,8 @@ const Privacy = () => {
     <>
       <SEOHead
         title="Privacy Policy"
-        description="Privacy Policy for Dr. Erick Kaufman's medical practice and telehealth services. Learn how we protect your personal health information and comply with HIPAA regulations."
-        keywords="privacy policy, HIPAA compliance, medical privacy, telehealth privacy, patient confidentiality, health information protection"
+        description="Privacy Policy for Dr. Erick Kaufman's educational platform and referral services for holistic health and wellness."
+        keywords="privacy policy, data protection, educational content, health referrals, holistic wellness"
         canonical="https://drerickkaufman.com/privacy"
       />
       
@@ -23,8 +23,7 @@ const Privacy = () => {
                 Privacy Policy
               </h1>
               <p className="text-lg text-medical-gray-600 max-w-3xl mx-auto">
-                Your privacy and the security of your personal health information is our highest priority. 
-                This policy explains how we collect, use, and protect your information.
+                Your privacy is important to us. This policy explains how we collect, use, and protect your information on our educational and referral platform.
               </p>
               <p className="text-sm text-medical-gray-500 mt-4">
                 Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
@@ -34,21 +33,37 @@ const Privacy = () => {
             {/* Content */}
             <div className="prose prose-lg max-w-none">
               
-              {/* HIPAA Compliance */}
+              {/* Introduction */}
               <section className="mb-12">
                 <h2 className="text-2xl font-semibold text-professional-navy mb-6 border-b border-medical-gray-200 pb-3">
-                  HIPAA Compliance & Medical Privacy
+                  Introduction
                 </h2>
                 <div className="space-y-4 text-medical-gray-700">
                   <p>
-                    As a licensed medical practice, we are committed to complying with the Health Insurance Portability 
-                    and Accountability Act (HIPAA) and all applicable state and federal privacy regulations. Your Protected 
-                    Health Information (PHI) is safeguarded with the highest level of security and confidentiality.
+                    Dr. Erick Kaufman ("we," "our," or "us") operates an educational and referral platform focused on holistic health and wellness. This Privacy Policy describes how we collect, use, and protect your information when you visit our website and use our educational services.
                   </p>
-                  <p>
-                    We will only use and disclose your health information as permitted by law and as necessary for your 
-                    treatment, payment for services, and healthcare operations.
-                  </p>
+                  <div className="bg-trust-blue/10 p-6 rounded-lg border border-trust-blue/20">
+                    <p className="font-semibold text-professional-navy mb-2">Important Notice:</p>
+                    <p>This website serves as an educational resource and referral platform. We do not provide direct medical services, diagnosis, or treatment through this website. Any medical services are provided through independent third-party platforms and practitioners that we may refer you to.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Nature of Services */}
+              <section className="mb-12">
+                <h2 className="text-2xl font-semibold text-professional-navy mb-6 border-b border-medical-gray-200 pb-3">
+                  Nature of Our Services
+                </h2>
+                <div className="space-y-4 text-medical-gray-700">
+                  <p>Our platform provides:</p>
+                  <ul className="space-y-2 list-disc list-inside">
+                    <li>Educational content about holistic health and wellness approaches</li>
+                    <li>Referrals to independent healthcare practitioners and platforms</li>
+                    <li>Information about alternative and integrative health approaches</li>
+                    <li>Newsletter and educational communication services</li>
+                    <li>Connection to third-party health service platforms</li>
+                    <li>General health and wellness guidance (not medical advice)</li>
+                  </ul>
                 </div>
               </section>
 
@@ -59,33 +74,31 @@ const Privacy = () => {
                 </h2>
                 <div className="space-y-6 text-medical-gray-700">
                   <div>
-                    <h3 className="text-xl font-medium text-professional-navy mb-3">Medical Information</h3>
+                    <h3 className="text-xl font-medium text-professional-navy mb-3">Contact Information</h3>
                     <ul className="space-y-2 list-disc list-inside">
-                      <li>Medical history and current health conditions</li>
-                      <li>Symptoms and treatment responses</li>
-                      <li>Prescription and medication information</li>
-                      <li>Laboratory results and diagnostic information</li>
-                      <li>Insurance and billing information</li>
+                      <li>Name and email address</li>
+                      <li>Phone number (when provided)</li>
+                      <li>General health interests and preferences</li>
+                      <li>Communication preferences</li>
                     </ul>
                   </div>
                   
                   <div>
-                    <h3 className="text-xl font-medium text-professional-navy mb-3">Personal Information</h3>
+                    <h3 className="text-xl font-medium text-professional-navy mb-3">Website Usage Information</h3>
                     <ul className="space-y-2 list-disc list-inside">
-                      <li>Name, address, phone number, and email address</li>
-                      <li>Date of birth and emergency contact information</li>
-                      <li>Communication preferences</li>
-                      <li>Appointment scheduling information</li>
+                      <li>IP address and device information</li>
+                      <li>Browser type and operating system</li>
+                      <li>Pages visited and time spent on our website</li>
+                      <li>Referral sources and website navigation patterns</li>
                     </ul>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-medium text-professional-navy mb-3">Technical Information</h3>
+                    <h3 className="text-xl font-medium text-professional-navy mb-3">Newsletter and Communication Data</h3>
                     <ul className="space-y-2 list-disc list-inside">
-                      <li>IP address and device information for telehealth sessions</li>
-                      <li>Browser type and operating system</li>
-                      <li>Website usage analytics (anonymized)</li>
-                      <li>Cookies and similar tracking technologies</li>
+                      <li>Email engagement metrics</li>
+                      <li>Content preferences and interests</li>
+                      <li>Subscription management information</li>
                     </ul>
                   </div>
                 </div>
@@ -98,32 +111,32 @@ const Privacy = () => {
                 </h2>
                 <div className="space-y-4 text-medical-gray-700">
                   <div>
-                    <h3 className="text-xl font-medium text-professional-navy mb-3">Treatment Purposes</h3>
+                    <h3 className="text-xl font-medium text-professional-navy mb-3">Educational Services</h3>
                     <ul className="space-y-2 list-disc list-inside">
-                      <li>Providing medical consultations and telehealth services</li>
-                      <li>Developing and implementing treatment plans</li>
-                      <li>Coordinating care with other healthcare providers when necessary</li>
-                      <li>Monitoring treatment progress and outcomes</li>
+                      <li>Providing health and wellness educational content</li>
+                      <li>Customizing content based on your interests</li>
+                      <li>Responding to your questions about health topics</li>
+                      <li>Sending educational newsletters and updates</li>
                     </ul>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-medium text-professional-navy mb-3">Administrative Purposes</h3>
+                    <h3 className="text-xl font-medium text-professional-navy mb-3">Referral Services</h3>
                     <ul className="space-y-2 list-disc list-inside">
-                      <li>Appointment scheduling and reminders</li>
-                      <li>Billing and insurance processing</li>
-                      <li>Quality improvement and patient safety initiatives</li>
-                      <li>Compliance with legal and regulatory requirements</li>
+                      <li>Connecting you with appropriate health service providers</li>
+                      <li>Providing information about third-party platforms</li>
+                      <li>Facilitating introductions to healthcare practitioners</li>
+                      <li>Following up on referral satisfaction</li>
                     </ul>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-medium text-professional-navy mb-3">Communication</h3>
+                    <h3 className="text-xl font-medium text-professional-navy mb-3">Website Operations</h3>
                     <ul className="space-y-2 list-disc list-inside">
-                      <li>Appointment confirmations and follow-up care</li>
-                      <li>Educational health information (with your consent)</li>
-                      <li>Practice updates and policy changes</li>
-                      <li>Emergency health notifications when applicable</li>
+                      <li>Improving website functionality and user experience</li>
+                      <li>Analyzing website usage patterns</li>
+                      <li>Providing technical support</li>
+                      <li>Ensuring website security</li>
                     </ul>
                   </div>
                 </div>
@@ -136,38 +149,34 @@ const Privacy = () => {
                 </h2>
                 <div className="space-y-4 text-medical-gray-700">
                   <p>
-                    We do not sell, rent, or trade your personal health information. We may share your information only in the following circumstances:
+                    We do not sell, rent, or trade your personal information. We may share your information only in the following circumstances:
                   </p>
                   <ul className="space-y-2 list-disc list-inside">
-                    <li><strong>With Your Consent:</strong> When you explicitly authorize us to share information</li>
-                    <li><strong>Treatment Coordination:</strong> With other healthcare providers involved in your care</li>
+                    <li><strong>Referral Purposes:</strong> Basic contact information may be shared with referred practitioners or platforms (with your consent)</li>
                     <li><strong>Legal Requirements:</strong> When required by law, court order, or regulatory authority</li>
-                    <li><strong>Public Health:</strong> For public health activities as required by law</li>
-                    <li><strong>Business Associates:</strong> With HIPAA-compliant service providers who support our operations</li>
-                    <li><strong>Emergency Situations:</strong> To prevent serious harm to you or others</li>
+                    <li><strong>Service Providers:</strong> With trusted third-party service providers who assist in website operations</li>
+                    <li><strong>With Your Consent:</strong> When you specifically authorize information sharing</li>
+                    <li><strong>Anonymous Data:</strong> Aggregated, non-identifying data for research and improvement purposes</li>
                   </ul>
                 </div>
               </section>
 
-              {/* Telehealth Privacy */}
+              {/* Third-Party Platforms */}
               <section className="mb-12">
                 <h2 className="text-2xl font-semibold text-professional-navy mb-6 border-b border-medical-gray-200 pb-3">
-                  Telehealth Platform Security
+                  Third-Party Platforms and Services
                 </h2>
                 <div className="space-y-4 text-medical-gray-700">
                   <p>
-                    Our telehealth consultations are conducted through HIPAA-compliant platforms that employ:
+                    This website may refer you to independent third-party platforms and practitioners. Please note:
                   </p>
                   <ul className="space-y-2 list-disc list-inside">
-                    <li>End-to-end encryption for all video and audio communications</li>
-                    <li>Secure data transmission and storage protocols</li>
-                    <li>Multi-factor authentication for access control</li>
-                    <li>Regular security audits and vulnerability assessments</li>
-                    <li>Automatic session timeouts and secure session termination</li>
+                    <li>Each third-party service has its own privacy policy and terms of service</li>
+                    <li>We are not responsible for the privacy practices of third-party platforms</li>
+                    <li>You should review the privacy policies of any platforms you choose to use</li>
+                    <li>Medical services and consultations are governed by the policies of the providing platform</li>
+                    <li>We do not have access to information collected by third-party platforms</li>
                   </ul>
-                  <p>
-                    We partner with Holistically Rx and Docs of Cannabis platforms, which maintain their own HIPAA-compliant privacy policies and security measures.
-                  </p>
                 </div>
               </section>
 
@@ -178,15 +187,14 @@ const Privacy = () => {
                 </h2>
                 <div className="space-y-4 text-medical-gray-700">
                   <p>
-                    We implement comprehensive security measures to protect your information:
+                    We implement security measures to protect your information:
                   </p>
                   <ul className="space-y-2 list-disc list-inside">
-                    <li>Advanced encryption for data in transit and at rest</li>
-                    <li>Secure servers with regular security updates</li>
-                    <li>Access controls and user authentication protocols</li>
-                    <li>Regular data backups with secure off-site storage</li>
-                    <li>Employee training on privacy and security best practices</li>
-                    <li>Incident response procedures for potential security breaches</li>
+                    <li>Secure data transmission and storage</li>
+                    <li>Regular security updates and monitoring</li>
+                    <li>Access controls and user authentication</li>
+                    <li>Employee training on privacy best practices</li>
+                    <li>Incident response procedures for potential security issues</li>
                   </ul>
                 </div>
               </section>
@@ -197,16 +205,18 @@ const Privacy = () => {
                   Your Privacy Rights
                 </h2>
                 <div className="space-y-4 text-medical-gray-700">
-                  <p>Under HIPAA and applicable privacy laws, you have the right to:</p>
+                  <p>You have the following rights regarding your personal information:</p>
                   <ul className="space-y-2 list-disc list-inside">
-                    <li><strong>Access:</strong> Request copies of your medical records</li>
-                    <li><strong>Amendment:</strong> Request corrections to your health information</li>
-                    <li><strong>Restriction:</strong> Request limits on how we use or share your information</li>
-                    <li><strong>Confidential Communication:</strong> Request communication through specific methods or locations</li>
-                    <li><strong>Accounting:</strong> Request a list of disclosures of your health information</li>
-                    <li><strong>Complaint:</strong> File a complaint about our privacy practices</li>
-                    <li><strong>Revocation:</strong> Revoke previous authorizations (except where action has already been taken)</li>
+                    <li><strong>Access:</strong> Request information about what personal data we have collected</li>
+                    <li><strong>Correction:</strong> Request corrections to inaccurate personal information</li>
+                    <li><strong>Deletion:</strong> Request deletion of your personal information (subject to legal requirements)</li>
+                    <li><strong>Unsubscribe:</strong> Opt out of newsletters and marketing communications at any time</li>
+                    <li><strong>Data Portability:</strong> Request a copy of your data in a readable format</li>
+                    <li><strong>Object:</strong> Object to certain uses of your personal information</li>
                   </ul>
+                  <p className="mt-4">
+                    To exercise these rights, please contact us using the information provided at the end of this policy.
+                  </p>
                 </div>
               </section>
 
@@ -237,17 +247,15 @@ const Privacy = () => {
                 </h2>
                 <div className="space-y-4 text-medical-gray-700">
                   <p>
-                    We retain your health information in accordance with:
+                    We retain your information for the following periods:
                   </p>
                   <ul className="space-y-2 list-disc list-inside">
-                    <li>Medical practice standards and legal requirements</li>
-                    <li>State and federal record retention laws</li>
-                    <li>Professional licensing board regulations</li>
-                    <li>Insurance and billing requirements</li>
+                    <li><strong>Contact Information:</strong> Until you request deletion or unsubscribe from our services</li>
+                    <li><strong>Website Analytics:</strong> Anonymized data may be retained indefinitely for improvement purposes</li>
+                    <li><strong>Communication Records:</strong> Email and message logs retained for 3 years</li>
+                    <li><strong>Referral Information:</strong> Basic referral records retained for 2 years for follow-up purposes</li>
+                    <li><strong>Newsletter Subscriptions:</strong> Retained until you unsubscribe</li>
                   </ul>
-                  <p>
-                    Medical records are typically retained for a minimum of seven years from the last date of service, or longer as required by applicable laws.
-                  </p>
                 </div>
               </section>
 
@@ -258,14 +266,8 @@ const Privacy = () => {
                 </h2>
                 <div className="space-y-4 text-medical-gray-700">
                   <p>
-                    For patients under 18 years of age:
+                    Our website and services are not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If we become aware that we have collected personal information from a child under 13, we will take steps to delete such information promptly.
                   </p>
-                  <ul className="space-y-2 list-disc list-inside">
-                    <li>Parental or guardian consent is required for treatment</li>
-                    <li>Parents/guardians have access rights to their minor's health information</li>
-                    <li>State laws regarding adolescent privacy rights are respected</li>
-                    <li>Special protections apply for sensitive health information</li>
-                  </ul>
                 </div>
               </section>
 
@@ -279,9 +281,9 @@ const Privacy = () => {
                     We may update this Privacy Policy periodically to reflect changes in our practices, technology, or legal requirements. Material changes will be communicated through:
                   </p>
                   <ul className="space-y-2 list-disc list-inside">
-                    <li>Email notification to registered patients</li>
+                    <li>Email notification to subscribers</li>
                     <li>Prominent notice on our website</li>
-                    <li>Updated notice provided at your next appointment</li>
+                    <li>Updated date at the top of this policy</li>
                   </ul>
                   <p>
                     Continued use of our services after policy updates constitutes acceptance of the revised terms.
@@ -296,38 +298,19 @@ const Privacy = () => {
                 </h2>
                 <div className="space-y-4 text-medical-gray-700">
                   <p>
-                    For questions about this Privacy Policy, to exercise your privacy rights, or to file a privacy complaint, please contact:
+                    If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact:
                   </p>
                   
                   <div className="bg-medical-gray-50 p-6 rounded-lg border border-medical-gray-200">
                     <h3 className="font-semibold text-professional-navy mb-3">Privacy Officer</h3>
-                    <p><strong>Dr. Erick Kaufman, MD</strong><br />
+                    <p><strong>Dr. Erick Kaufman</strong><br />
                     Email: privacy@drerickkaufman.com<br />
                     Phone: (405) XXX-XXXX<br />
-                    Address: [Practice Address]<br />
-                    Oklahoma [ZIP Code]</p>
+                    Website: docs-of-cannabis.lovable.app</p>
                   </div>
 
-                  <div className="bg-trust-blue/10 p-6 rounded-lg border border-trust-blue/20">
-                    <h3 className="font-semibold text-professional-navy mb-3">File a Complaint</h3>
-                    <p>
-                      You may also file a complaint with the U.S. Department of Health and Human Services if you believe your privacy rights have been violated:
-                    </p>
-                    <p className="mt-2">
-                      <strong>U.S. Department of Health and Human Services</strong><br />
-                      Office for Civil Rights<br />
-                      Website: www.hhs.gov/ocr/privacy<br />
-                      Phone: 1-800-368-1019
-                    </p>
-                  </div>
-                </div>
-              </section>
-
-              {/* Acknowledgment */}
-              <section className="mb-12">
-                <div className="bg-medical-primary/10 p-6 rounded-lg border border-medical-primary/20">
-                  <p className="text-medical-gray-700">
-                    <strong>Important:</strong> This Privacy Policy supplements but does not replace the Notice of Privacy Practices you receive as part of your patient registration. Together, these documents provide comprehensive information about how we protect your privacy and handle your health information.
+                  <p className="text-sm text-medical-gray-500">
+                    This privacy policy applies only to this educational and referral website. Any medical services provided through third-party platforms are subject to their respective privacy policies and terms of service.
                   </p>
                 </div>
               </section>
