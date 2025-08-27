@@ -19,16 +19,34 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="professional-nav sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-14 sm:h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group hover:opacity-80 transition-opacity">
-            <span className="text-medical-gray-600 text-sm sm:text-base">←</span>
-            <span className="font-medium text-medical-gray-600 text-sm sm:text-base">
-              Back to ErickKaufman.com
-            </span>
-          </Link>
+    <>
+      {/* Super Header */}
+      <div className="bg-medical-gray-50 border-b border-medical-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center h-10">
+            <Link to="/" className="flex items-center space-x-2 group hover:opacity-80 transition-opacity">
+              <span className="text-medical-gray-600 text-sm">←</span>
+              <span className="font-medium text-medical-gray-600 text-sm">
+                Back to ErickKaufman.com
+              </span>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Navigation */}
+      <nav className="professional-nav sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-14 sm:h-16">
+            {/* Logo */}
+            <Link to="/" className="flex items-center space-x-2">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-medical-primary rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-xs sm:text-sm">EK</span>
+              </div>
+              <span className="font-semibold text-professional-navy text-base sm:text-lg truncate">
+                Erick Kaufman MD
+              </span>
+            </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
@@ -130,8 +148,9 @@ const Navigation = () => {
             </div>
           </div>
         )}
-      </div>
-    </nav>
+        </div>
+      </nav>
+    </>
   );
 };
 
