@@ -20,24 +20,24 @@ const Navigation = () => {
   return (
     <nav className="professional-nav sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-medical-primary rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">EK</span>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-medical-primary rounded-full flex items-center justify-center">
+              <span className="text-white font-bold text-xs sm:text-sm">EK</span>
             </div>
-            <span className="font-semibold text-professional-navy text-lg">
+            <span className="font-semibold text-professional-navy text-base sm:text-lg truncate">
               Dr. Erick Kaufman, MD
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`font-medium transition-colors duration-200 ${
+                className={`font-medium transition-colors duration-200 text-sm lg:text-base ${
                   isActive(item.path)
                     ? 'text-medical-primary border-b-2 border-medical-primary'
                     : 'text-medical-gray-600 hover:text-medical-primary'
@@ -48,7 +48,7 @@ const Navigation = () => {
             ))}
             <Button 
               variant="outline" 
-              className="medical-button-primary ml-4"
+              className="medical-button-primary ml-4 text-sm px-4 py-2"
               asChild
             >
               <a 

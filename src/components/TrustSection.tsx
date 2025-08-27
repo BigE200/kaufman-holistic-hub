@@ -66,20 +66,20 @@ const TrustSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-20">
           {trustMetrics.map((metric, index) => (
-            <Card key={index} className="trust-card text-center p-6">
+            <Card key={index} className="trust-card text-center p-4 sm:p-6">
               <CardContent className="p-0">
-                <div className="mb-4">
-                  <metric.icon className="h-8 w-8 text-medical-primary mx-auto" />
+                <div className="mb-3 sm:mb-4">
+                  <metric.icon className="h-6 w-6 sm:h-8 sm:w-8 text-medical-primary mx-auto" />
                 </div>
-                <div className="text-3xl font-bold text-professional-navy mb-2">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-professional-navy mb-1 sm:mb-2">
                   {metric.number}
                 </div>
-                <div className="font-semibold text-medical-gray-900 mb-1">
+                <div className="font-semibold text-medical-gray-900 mb-1 text-sm sm:text-base">
                   {metric.label}
                 </div>
-                <div className="text-sm text-medical-gray-600">
+                <div className="text-xs sm:text-sm text-medical-gray-600">
                   {metric.description}
                 </div>
               </CardContent>
@@ -98,26 +98,26 @@ const TrustSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="trust-card p-6">
+              <Card key={index} className="trust-card p-4 sm:p-6">
                 <CardContent className="p-0">
                   {/* Rating Stars */}
-                  <div className="flex mb-4">
+                  <div className="flex mb-3 sm:mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                      <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
                   
-                  <blockquote className="text-medical-gray-600 mb-6 italic">
+                  <blockquote className="text-medical-gray-600 mb-4 sm:mb-6 italic text-sm sm:text-base">
                     "{testimonial.text}"
                   </blockquote>
                   
-                  <div className="border-t border-medical-gray-200 pt-4">
-                    <div className="font-semibold text-professional-navy">
+                  <div className="border-t border-medical-gray-200 pt-3 sm:pt-4">
+                    <div className="font-semibold text-professional-navy text-sm sm:text-base">
                       {testimonial.name}
                     </div>
-                    <div className="text-sm text-medical-gray-600">
+                    <div className="text-xs sm:text-sm text-medical-gray-600">
                       {testimonial.location} • {testimonial.treatment}
                     </div>
                   </div>

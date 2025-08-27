@@ -145,11 +145,21 @@
   }
   
   .medical-section {
-    @apply py-16 px-4;
+    @apply py-12 sm:py-16 px-4;
   }
   
   .professional-nav {
     @apply bg-white/95 backdrop-blur-sm border-b border-medical-gray-200;
+  }
+  
+  /* Performance optimizations */
+  img {
+    @apply will-change-auto;
+  }
+  
+  .hero-image {
+    content-visibility: auto;
+    contain-intrinsic-size: 400px 500px;
   }
 }
 
