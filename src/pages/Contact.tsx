@@ -26,7 +26,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission - integrate with secure form service
-    console.log('Form submitted:', formData);
+    // Form submitted successfully
   };
 
   const contactMethods = [

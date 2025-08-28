@@ -40,7 +40,7 @@ const Navigation = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2" aria-label="Dr. Erick Kaufman homepage">
               <div className="w-7 h-7 sm:w-8 sm:h-8 bg-medical-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xs sm:text-sm" aria-hidden="true">EK</span>
+                <span className="text-primary-foreground font-bold text-xs sm:text-sm" aria-hidden="true">EK</span>
               </div>
               <span className="font-semibold text-professional-navy text-base sm:text-lg truncate">
                 Erick Kaufman MD
@@ -67,7 +67,7 @@ const Navigation = () => {
                 const event = new CustomEvent('openAIChat');
                 window.dispatchEvent(event);
               }}
-              className="bg-medical-primary text-white hover:bg-medical-accent ml-4 text-sm px-4 py-2"
+              className="bg-medical-primary text-primary-foreground hover:bg-medical-accent ml-4 text-sm px-4 py-2"
             >
               <Bot className="mr-2 h-4 w-4" />
               Ask AI Erick
@@ -105,7 +105,7 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-medical-gray-200">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-medical-gray-200">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -127,7 +127,7 @@ const Navigation = () => {
                     window.dispatchEvent(event);
                     setIsOpen(false);
                   }}
-                  className="bg-medical-primary text-white hover:bg-medical-accent w-full"
+                  className="bg-medical-primary text-primary-foreground hover:bg-medical-accent w-full"
                 >
                   <Bot className="mr-2 h-4 w-4" />
                   Ask AI Erick

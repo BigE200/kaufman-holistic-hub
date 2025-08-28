@@ -196,22 +196,22 @@ const AIChat = () => {
             aria-label="Chat with Dr. Kaufman's AI Assistant"
           >
             <div className="relative">
-              <Bot className="h-7 w-7 text-white group-hover:scale-110 transition-transform duration-300" />
+              <Bot className="h-7 w-7 text-primary-foreground group-hover:scale-110 transition-transform duration-300" />
               <div className="absolute -top-1 -right-1 h-3 w-3 bg-trust-blue rounded-full animate-pulse"></div>
             </div>
           </Button>
           
           {/* Floating label for clarity */}
-          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-white text-professional-navy text-xs font-medium px-3 py-1 rounded-full shadow-md border border-medical-gray-200 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-background text-professional-navy text-xs font-medium px-3 py-1 rounded-full shadow-md border border-medical-gray-200 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             Ask AI Erick
           </div>
           
           {/* Instruction bubble */}
           {showInstructionBubble && (
-            <div className="absolute -top-20 -left-48 w-64 bg-white border border-medical-gray-200 rounded-lg shadow-lg p-3 animate-in fade-in slide-in-from-bottom-2 duration-500">
+            <div className="absolute -top-20 -left-48 w-64 bg-background border border-medical-gray-200 rounded-lg shadow-lg p-3 animate-in fade-in slide-in-from-bottom-2 duration-500">
               <div className="flex items-start gap-2">
                 <div className="h-6 w-6 bg-medical-primary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Bot className="h-3 w-3 text-white" />
+                  <Bot className="h-3 w-3 text-primary-foreground" />
                 </div>
                 <div className="flex-1">
                   <p className="text-xs font-medium text-professional-navy mb-1">💬 Ask AI Erick</p>
@@ -242,29 +242,29 @@ const AIChat = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50 w-96 max-w-[calc(100vw-2rem)]">
       <Card className="shadow-2xl border-medical-gray-200">
-        <div className="bg-medical-primary text-white p-4 rounded-t-lg">
+        <div className="bg-medical-primary text-primary-foreground p-4 rounded-t-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="h-8 w-8 bg-white/20 rounded-full flex items-center justify-center">
+              <div className="h-8 w-8 bg-primary-foreground/20 rounded-full flex items-center justify-center">
                 <Bot className="h-5 w-5" />
               </div>
               <div>
                 <h3 className="font-semibold text-sm">Ask AI Erick</h3>
-                <p className="text-xs text-white/80">Online • Integrative Medicine Help</p>
+                <p className="text-xs text-primary-foreground/80">Online • Integrative Medicine Help</p>
               </div>
             </div>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(false)}
-              className="text-white hover:bg-white/20 h-8 w-8 p-0"
+              className="text-primary-foreground hover:bg-primary-foreground/20 h-8 w-8 p-0"
             >
               <X className="h-4 w-4" />
             </Button>
           </div>
         </div>
 
-        <CardContent className="p-0 bg-white">
+        <CardContent className="p-0 bg-background">
           {/* Messages */}
           <div className="h-80 overflow-y-auto p-4 space-y-4">
             {messages.map((message) => (
@@ -274,13 +274,13 @@ const AIChat = () => {
               >
                 {message.sender === 'bot' && (
                   <div className="h-7 w-7 bg-medical-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <Bot className="h-4 w-4 text-white" />
+                    <Bot className="h-4 w-4 text-primary-foreground" />
                   </div>
                 )}
                 <div
                   className={`max-w-[80%] rounded-lg p-3 text-sm ${
                     message.sender === 'user'
-                      ? 'bg-trust-blue text-white'
+                      ? 'bg-trust-blue text-primary-foreground'
                       : 'bg-medical-gray-100 text-medical-gray-900'
                   }`}
                 >
@@ -288,7 +288,7 @@ const AIChat = () => {
                 </div>
                 {message.sender === 'user' && (
                   <div className="h-7 w-7 bg-trust-blue rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <User className="h-4 w-4 text-white" />
+                    <User className="h-4 w-4 text-primary-foreground" />
                   </div>
                 )}
               </div>
@@ -297,7 +297,7 @@ const AIChat = () => {
             {isTyping && (
               <div className="flex gap-2 justify-start">
                 <div className="h-7 w-7 bg-medical-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <Bot className="h-4 w-4 text-white" />
+                  <Bot className="h-4 w-4 text-primary-foreground" />
                 </div>
                 <div className="bg-medical-gray-100 text-medical-gray-900 rounded-lg p-3 text-sm">
                   <div className="flex gap-1">
@@ -320,7 +320,7 @@ const AIChat = () => {
                   <button
                     key={index}
                     onClick={() => handleQuickResponse(response)}
-                    className="text-xs bg-white border border-medical-gray-200 rounded-full px-3 py-1 hover:bg-medical-primary hover:text-white transition-colors duration-200"
+                    className="text-xs bg-background border border-medical-gray-200 rounded-full px-3 py-1 hover:bg-medical-primary hover:text-primary-foreground transition-colors duration-200"
                   >
                     {response}
                   </button>
@@ -342,7 +342,7 @@ const AIChat = () => {
               <Button
                 onClick={handleSendMessage}
                 disabled={!inputText.trim() || isTyping}
-                className="bg-medical-primary hover:bg-medical-accent text-white p-2 h-10 w-10"
+                className="bg-medical-primary hover:bg-medical-accent text-primary-foreground p-2 h-10 w-10"
               >
                 <Send className="h-4 w-4" />
               </Button>

@@ -45,14 +45,14 @@ function resizeImageIfNeeded(
 }
 
 export const removeBackground = async (imageElement: HTMLImageElement): Promise<Blob> => {
-  console.log('Starting background removal process...');
+  // Starting background removal process
   const segmenter = await (async () => {
     try {
       return await pipeline('image-segmentation', 'Xenova/segformer-b0-finetuned-ade-512-512', {
         device: 'wasm',
       });
     } catch (e) {
-      console.warn('Primary model failed, falling back to RMBG-1.4', e);
+      // Primary model failed, falling back to RMBG-1.4
       return await pipeline('image-segmentation', 'briaai/RMBG-1.4', {
         device: 'wasm',
       });
@@ -66,16 +66,12 @@ export const removeBackground = async (imageElement: HTMLImageElement): Promise<
   
   // Resize image if needed and draw it to canvas
   const wasResized = resizeImageIfNeeded(canvas, ctx, imageElement);
-  console.log(`Image ${wasResized ? 'was' : 'was not'} resized. Final: ${canvas.width}x${canvas.height}`);
   
   // Get image data as base64
   const imageData = canvas.toDataURL('image/jpeg', 0.9);
-  console.log('Image converted to base64');
   
   // Process the image with the segmentation model
-  console.log('Processing with segmentation model...');
   const result: any = await segmenter(imageData);
-  console.log('Segmentation result:', result);
   
   if (!result || !Array.isArray(result) || result.length === 0 || !result[0].mask) {
     throw new Error('Invalid segmentation result');
@@ -102,13 +98,13 @@ export const removeBackground = async (imageElement: HTMLImageElement): Promise<
   }
   
   outputCtx.putImageData(outputImageData, 0, 0);
-  console.log('Mask applied successfully');
+  // Mask applied successfully
   
   // Convert canvas to blob (PNG preserves transparency)
   return new Promise((resolve, reject) => {
     outputCanvas.toBlob((blob) => {
       if (blob) {
-        console.log('Successfully created final blob');
+        // Successfully created final blob
         resolve(blob);
       } else {
         reject(new Error('Failed to create blob'));

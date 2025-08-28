@@ -8,12 +8,13 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import RecommendedPracticesSection from '@/components/RecommendedPracticesSection';
 import NewsletterSection from '@/components/NewsletterSection';
 import AIChat from '@/components/AIChat';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import SEOHead from '@/components/SEOHead';
 import { PersonSchema, WebSiteSchema, MedicalServiceSchema, FAQSchema } from '@/components/StructuredData';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <SEOHead 
         canonical="https://drerickkaufman.com/"
       />
@@ -55,19 +56,23 @@ const Index = () => {
       />
       
       <Navigation />
-      <main role="main">
-        <HeroSection />
-        <HealthCategoriesSection />
-        <TrustSection />
-        <div id="testimonials">
-          <TestimonialsSection />
-        </div>
-        <CredentialsSection />
-        <RecommendedPracticesSection />
-        <NewsletterSection />
-      </main>
+      <ErrorBoundary>
+        <main role="main">
+          <HeroSection />
+          <HealthCategoriesSection />
+          <TrustSection />
+          <div id="testimonials">
+            <TestimonialsSection />
+          </div>
+          <CredentialsSection />
+          <RecommendedPracticesSection />
+          <NewsletterSection />
+        </main>
+      </ErrorBoundary>
       <Footer />
-      <AIChat />
+      <ErrorBoundary fallback={null}>
+        <AIChat />
+      </ErrorBoundary>
     </div>
   );
 };

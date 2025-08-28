@@ -54,7 +54,7 @@ const NewsletterSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               {benefits.map((benefit, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm">
+                  <div className="w-12 h-12 bg-background rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm">
                     <benefit.icon className="h-6 w-6 text-medical-primary" />
                   </div>
                   <h3 className="font-semibold text-professional-navy mb-2">{benefit.title}</h3>

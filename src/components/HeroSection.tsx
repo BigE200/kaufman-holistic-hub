@@ -37,7 +37,7 @@ const HeroSection = () => {
             </div>
 
             {/* Mission Statement */}
-            <div className="bg-white/70 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-medical-gray-200">
+            <div className="bg-background/70 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-medical-gray-200">
               <h3 className="font-semibold text-professional-navy mb-2 text-base sm:text-lg">Our Mission</h3>
               <p className="text-medical-gray-600 italic text-sm sm:text-base">
                 "Making holistic, evidence-based, and accessible healthcare transparent and trustworthy"
@@ -120,7 +120,7 @@ const HeroSection = () => {
                 </picture>
               
               {/* Credentials Badge */}
-              <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white p-3 sm:p-4 rounded-xl shadow-lg border border-medical-gray-200">
+              <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-background p-3 sm:p-4 rounded-xl shadow-lg border border-medical-gray-200">
                 <div className="text-center">
                   <div className="font-bold text-professional-navy text-base sm:text-lg">MD</div>
                   <div className="text-xs text-medical-gray-600">Board Certified</div>

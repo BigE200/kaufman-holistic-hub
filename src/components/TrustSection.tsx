@@ -54,7 +54,7 @@ const TrustSection = () => {
   ];
 
   return (
-    <section className="medical-section bg-white">
+    <section className="medical-section bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Trust Metrics */}
         <div className="text-center mb-16">
@@ -132,7 +132,7 @@ const TrustSection = () => {
           <h4 className="text-xl font-semibold text-professional-navy mb-4">
             Verified Patient Reviews
           </h4>
-          <div className="bg-white rounded-lg p-6 border border-medical-gray-200">
+          <div className="bg-background rounded-lg p-6 border border-medical-gray-200">
             <div className="text-medical-gray-600 mb-4">
               <em>Trustmary Review Widget Integration</em>
             </div>
