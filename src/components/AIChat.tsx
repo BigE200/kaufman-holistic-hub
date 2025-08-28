@@ -13,6 +13,7 @@ interface Message {
 
 const AIChat = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showInstructionBubble, setShowInstructionBubble] = useState(true);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -33,10 +34,20 @@ const AIChat = () => {
     scrollToBottom();
   }, [messages]);
 
+  // Auto-hide instruction bubble after delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowInstructionBubble(false);
+    }, 8000); // Hide after 8 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // Listen for navigation trigger
   useEffect(() => {
     const handleOpenAIChat = () => {
       setIsOpen(true);
+      setShowInstructionBubble(false);
     };
     
     window.addEventListener('openAIChat', handleOpenAIChat);
@@ -116,7 +127,10 @@ const AIChat = () => {
       <div className="fixed bottom-6 right-6 z-50">
         <div className="relative group">
           <Button
-            onClick={() => setIsOpen(true)}
+            onClick={() => {
+              setIsOpen(true);
+              setShowInstructionBubble(false);
+            }}
             className="h-16 w-16 rounded-full bg-medical-primary hover:bg-medical-accent shadow-xl hover:shadow-2xl transition-all duration-300"
             aria-label="Chat with Dr. Kaufman's AI Assistant"
           >
@@ -130,6 +144,35 @@ const AIChat = () => {
           <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-white text-professional-navy text-xs font-medium px-3 py-1 rounded-full shadow-md border border-medical-gray-200 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             Ask AI Erick
           </div>
+          
+          {/* Instruction bubble */}
+          {showInstructionBubble && (
+            <div className="absolute -top-20 -left-48 w-64 bg-white border border-medical-gray-200 rounded-lg shadow-lg p-3 animate-in fade-in slide-in-from-bottom-2 duration-500">
+              <div className="flex items-start gap-2">
+                <div className="h-6 w-6 bg-medical-primary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Bot className="h-3 w-3 text-white" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs font-medium text-professional-navy mb-1">💬 Ask AI Erick</p>
+                  <p className="text-xs text-medical-gray-600 leading-relaxed">
+                    Get instant answers about integrative medicine, alternative therapies, and Dr. Kaufman's services.
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowInstructionBubble(false)}
+                  className="text-medical-gray-400 hover:text-medical-gray-600 text-xs p-0.5"
+                  aria-label="Close instruction"
+                >
+                  ✕
+                </button>
+              </div>
+              {/* Pointer arrow */}
+              <div className="absolute bottom-0 right-4 transform translate-y-full">
+                <div className="w-0 h-0 border-l-[8px] border-r-[8px] border-t-[8px] border-l-transparent border-r-transparent border-t-white"></div>
+                <div className="w-0 h-0 border-l-[8px] border-r-[8px] border-t-[8px] border-l-transparent border-r-transparent border-t-medical-gray-200 absolute top-0 translate-y-[-1px]"></div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
