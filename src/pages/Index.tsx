@@ -5,6 +5,7 @@ import HealthCategoriesSection from '@/components/HealthCategoriesSection';
 import TrustSection from '@/components/TrustSection';
 import CredentialsSection from '@/components/CredentialsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
+import RecommendedPracticesSection from '@/components/RecommendedPracticesSection';
 import NewsletterSection from '@/components/NewsletterSection';
 import AIChat from '@/components/AIChat';
 import SEOHead from '@/components/SEOHead';
@@ -24,6 +25,7 @@ const Index = () => {
           <TestimonialsSection />
         </div>
         <CredentialsSection />
+        <RecommendedPracticesSection />
         <NewsletterSection />
       </main>
       <Footer />
