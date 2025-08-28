@@ -106,8 +106,9 @@ const HeroSection = () => {
                     className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
                     fetchPriority="high"
                     decoding="async"
-                    width={400}
-                    height={500}
+                    loading="eager"
+                    width={380}
+                    height={444}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                     style={{ 
                       contentVisibility: 'auto', 
