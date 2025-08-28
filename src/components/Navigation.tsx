@@ -64,6 +64,7 @@ const Navigation = () => {
             ))}
             <Button
               onClick={() => {
+                console.log('Dispatching openAIChat event from navigation');
                 const event = new CustomEvent('openAIChat');
                 window.dispatchEvent(event);
               }}
@@ -123,6 +124,7 @@ const Navigation = () => {
               <div className="px-3 py-2 space-y-2">
                 <Button
                   onClick={() => {
+                    console.log('Dispatching openAIChat event from mobile navigation');
                     const event = new CustomEvent('openAIChat');
                     window.dispatchEvent(event);
                     setIsOpen(false);
