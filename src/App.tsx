@@ -6,10 +6,9 @@ import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
-import Blog from "./pages/Blog";
+import ContentLibrary from "./pages/ContentLibrary";
 import HolisticallyRx from "./pages/HolisticallyRx";
 import DocsOfCannabis from "./pages/DocsOfCannabis";
-import Media from "./pages/Media";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -29,10 +28,11 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/content-library" element={<ContentLibrary />} />
+            <Route path="/blog" element={<ContentLibrary />} />
+            <Route path="/media" element={<ContentLibrary />} />
             <Route path="/holistically-rx" element={<HolisticallyRx />} />
             <Route path="/docs-of-cannabis" element={<DocsOfCannabis />} />
-            <Route path="/media" element={<Media />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
