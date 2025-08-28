@@ -5,6 +5,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import AIChat from '@/components/AIChat';
 import SEOHead from '@/components/SEOHead';
+import { PersonSchema, WebPageSchema } from '@/components/StructuredData';
 import drKaufmanOptimized from '@/assets/dr-kaufman-optimized.webp';
 import drKaufmanImage from '@/assets/dr-kaufman-headshot.jpg';
 
@@ -44,6 +45,26 @@ const About = () => {
         keywords="Dr Erick Kaufman biography, integrative medicine physician, medical cannabis expert, holistic healthcare, telehealth doctor"
         canonical="https://drerickkaufman.com/about"
       />
+      
+      {/* Structured Data */}
+      <PersonSchema 
+        name="Dr. Erick Kaufman, MD"
+        jobTitle="Integrative Medicine Physician"
+        description="Board certified physician with expertise in integrative medicine, alternative therapies, and medical cannabis consultation. Founder of Holistically Rx and Docs of Cannabis."
+        url="https://drerickkaufman.com/about"
+        image="https://drerickkaufman.com/dr-kaufman-social.jpg"
+        sameAs={[
+          "https://www.linkedin.com/in/c-erick-kaufman-md-32a76b26",
+          "https://holisticallyrx.com",
+          "https://docsofcannabis.com"
+        ]}
+      />
+      <WebPageSchema 
+        name="About Dr. Erick Kaufman, MD"
+        description="Learn about Dr. Erick Kaufman's journey from traditional medicine to integrative healthcare. Board certified physician, founder of Holistically Rx and Docs of Cannabis."
+        url="https://drerickkaufman.com/about"
+      />
+      
       <Navigation />
       {/* Hero Section */}
       <section className="medical-section bg-medical-gray-50">

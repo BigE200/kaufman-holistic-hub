@@ -27,18 +27,41 @@ const SEOHead = ({
       {noIndex && <meta name="robots" content="noindex, nofollow" />}
       {canonical && <link rel="canonical" href={canonical} />}
       
-      {/* Open Graph */}
+      {/* Enhanced Meta Tags for AI Optimization */}
+      <meta name="author" content="Dr. Erick Kaufman, MD" />
+      <meta name="language" content="English" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="rating" content="general" />
+      
+      {/* AI Search Engine Optimization */}
+      <meta name="AI-optimized" content="true" />
+      <meta name="subject" content="Integrative Medicine, Alternative Healthcare, Medical Cannabis" />
+      <meta name="topic" content="Holistic Healthcare and Alternative Medicine" />
+      <meta name="summary" content={description} />
+      
+      {/* Open Graph Enhanced */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:type" content="website" />
+      <meta property="og:locale" content="en_US" />
+      <meta property="og:site_name" content="Dr. Erick Kaufman, MD" />
       {canonical && <meta property="og:url" content={canonical} />}
       
-      {/* Twitter Card */}
+      {/* Twitter Card Enhanced */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:creator" content="@DrErickKaufman" />
+      <meta name="twitter:site" content="@DrErickKaufman" />
+      
+      {/* Medical/Healthcare Specific Tags */}
+      <meta name="medical-disclaimer" content="This website is for educational purposes only and does not provide medical advice." />
+      <meta name="health-topic" content="Integrative Medicine, Alternative Medicine, Medical Cannabis" />
+      
+      {/* Structured Data Indicators */}
+      <meta name="schema-type" content="Person, MedicalBusiness, WebPage" />
     </Helmet>
   );
 };
