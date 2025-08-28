@@ -56,31 +56,75 @@ const AIChat = () => {
 
   const quickResponses = [
     "What is integrative medicine?",
-    "How can alternative medicine help me?",
-    "What are your telehealth services?",
+    "Tell me about weight management options",
+    "What longevity therapies do you offer?",
     "How do I schedule a consultation?",
   ];
 
   const generateBotResponse = (userMessage: string): string => {
     const lowerMessage = userMessage.toLowerCase();
     
+    // Weight Management
+    if (lowerMessage.includes('weight') || lowerMessage.includes('semaglutide') || lowerMessage.includes('tirzepatide') || lowerMessage.includes('wegovy')) {
+      return "Holistically Rx offers medically supervised weight management with prescriptions like Semaglutide, Tirzepatide, Wegovy, and more. These GLP-1 medications help with sustainable weight loss under professional guidance. Schedule a consultation at holisticallyrx.com to discuss if these treatments are right for you.";
+    }
+
+    // Longevity Therapies
+    if (lowerMessage.includes('longevity') || lowerMessage.includes('nad+') || lowerMessage.includes('nad') || lowerMessage.includes('glutathione') || lowerMessage.includes('rapamycin') || lowerMessage.includes('anti-aging')) {
+      return "Our longevity therapies include cutting-edge treatments like NAD+ infusions for cellular repair, Glutathione injections for antioxidant support, and Rapamycin consultations for longevity research. These treatments support healthy aging and optimal cellular function.";
+    }
+
+    // Hormone Optimization
+    if (lowerMessage.includes('hormone') || lowerMessage.includes('hrt') || lowerMessage.includes('trt') || lowerMessage.includes('testosterone') || lowerMessage.includes('estrogen')) {
+      return "We offer comprehensive hormone optimization including HRT (Hormone Replacement Therapy) and TRT (Testosterone Replacement Therapy). Our functional medicine approach includes continuous glucose monitoring (CGM) and metabolic health assessments to optimize your hormonal balance.";
+    }
+
+    // IV Therapy
+    if (lowerMessage.includes('iv therapy') || lowerMessage.includes('infusion') || lowerMessage.includes('hydration') || lowerMessage.includes('nutrients')) {
+      return "Holistically Rx provides mobile IV therapy services for hydration, energy boost, and nutrient replenishment. Our IV treatments are delivered directly to you and can help with recovery, immune support, and overall wellness.";
+    }
+
+    // Diagnostic Services
+    if (lowerMessage.includes('diagnostic') || lowerMessage.includes('testing') || lowerMessage.includes('dutch') || lowerMessage.includes('gut biome') || lowerMessage.includes('nutrition')) {
+      return "We offer advanced diagnostic services including DUTCH hormone tests, comprehensive gut biome analysis, and personalized nutritional guidance. These tests help identify root causes and create targeted treatment plans for optimal health.";
+    }
+
+    // Emotional Wellness & ESA
+    if (lowerMessage.includes('emotional') || lowerMessage.includes('mental health') || lowerMessage.includes('esa') || lowerMessage.includes('emotional support') || lowerMessage.includes('anxiety') || lowerMessage.includes('depression')) {
+      return "Our emotional wellness services include ESA (Emotional Support Animal) certifications and therapies to support mental health and well-being. We take a holistic approach to mental wellness, addressing both psychological and physiological factors.";
+    }
+    
+    // Integrative Medicine
     if (lowerMessage.includes('integrative medicine') || lowerMessage.includes('holistic')) {
-      return "Integrative medicine combines conventional medical treatments with evidence-based complementary therapies. Dr. Kaufman focuses on treating the whole person, addressing root causes rather than just symptoms, and incorporating plant-based therapies when appropriate.";
+      return "Integrative medicine treats you as a whole person—mind, body, and spirit. At Holistically Rx, we blend proven medical practices with natural therapies, targeting root causes rather than just symptoms. Our approach combines modern medicine with evidence-based complementary treatments.";
     }
     
-    if (lowerMessage.includes('alternative') || lowerMessage.includes('plant')) {
-      return "Alternative medicine and plant-based therapies can be effective for various conditions including chronic pain, anxiety, PTSD, and certain neurological disorders. Dr. Kaufman provides specialized certifications and guidance through Holistically Rx and Docs of Cannabis platforms.";
+    // Alternative Medicine & Cannabis
+    if (lowerMessage.includes('alternative') || lowerMessage.includes('plant') || lowerMessage.includes('cannabis') || lowerMessage.includes('medical marijuana')) {
+      return "Alternative medicine and plant-based therapies can be effective for various conditions including chronic pain, anxiety, PTSD, and neurological disorders. Dr. Kaufman provides specialized certifications and guidance through both Holistically Rx and Docs of Cannabis platforms.";
     }
     
-    if (lowerMessage.includes('telehealth') || lowerMessage.includes('consultation') || lowerMessage.includes('appointment')) {
-      return "Dr. Kaufman offers secure telehealth consultations through HIPAA-compliant platforms. You can schedule through Holistically Rx (holisticallyrx.com) or Docs of Cannabis (docsofcannabis.com) depending on your needs.";
+    // Telehealth & Appointments
+    if (lowerMessage.includes('telehealth') || lowerMessage.includes('consultation') || lowerMessage.includes('appointment') || lowerMessage.includes('schedule')) {
+      return "We offer secure telehealth consultations through HIPAA-compliant platforms. Holistically Rx is open every day of the week with no insurance required - just a 100% online process with licensed providers. Visit holisticallyrx.com to schedule your consultation.";
+    }
+
+    // Team & Providers
+    if (lowerMessage.includes('doctor') || lowerMessage.includes('provider') || lowerMessage.includes('team') || lowerMessage.includes('krasne') || lowerMessage.includes('niles') || lowerMessage.includes('cheryl') || lowerMessage.includes('miller')) {
+      return "Our team includes board-certified physicians like Dr. Krasne (Anesthesiologist), Dr. Niles (OB/GYN with 30+ years experience), Dr. Cheryl (Cannabis Medicine specialist), and Dr. J. Chance Miller (Longevity and Weight Management). All are licensed providers committed to compassionate, patient-centered care.";
+    }
+
+    // Cost & Insurance
+    if (lowerMessage.includes('cost') || lowerMessage.includes('price') || lowerMessage.includes('insurance') || lowerMessage.includes('affordable')) {
+      return "Holistically Rx provides affordable care with no insurance required. We believe in making integrative medicine accessible to everyone on a budget. Contact us through holisticallyrx.com for specific pricing on our services.";
     }
     
-    if (lowerMessage.includes('trust') || lowerMessage.includes('feedback')) {
-      return "Dr. Kaufman pioneered feedback systems in healthcare to build trust and transparency. All patient interactions include feedback collection to continuously improve care quality and patient outcomes.";
+    // Trust & Quality
+    if (lowerMessage.includes('trust') || lowerMessage.includes('feedback') || lowerMessage.includes('reviews') || lowerMessage.includes('safe')) {
+      return "Holistically Rx is trusted by over 1 million subscribers and maintains the highest standards with HIPAA compliance, licensed providers, and certified US-based pharmacies. Dr. Kaufman pioneered feedback systems in healthcare to ensure transparency and continuous improvement.";
     }
     
-    return "Thank you for your question! For personalized medical advice, I recommend scheduling a consultation with Dr. Kaufman. You can find more information on his platforms: Holistically Rx and Docs of Cannabis, or reach out through the contact page.";
+    return "Thank you for your question! Holistically Rx offers comprehensive integrative care including weight management, longevity therapies, hormone optimization, IV therapy, diagnostic services, and emotional wellness support. For personalized medical advice, schedule a consultation at holisticallyrx.com or reach out through our contact page.";
   };
 
   const handleSendMessage = async () => {
