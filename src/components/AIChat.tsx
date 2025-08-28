@@ -46,7 +46,6 @@ const AIChat = () => {
   // Listen for navigation trigger
   useEffect(() => {
     const handleOpenAIChat = () => {
-      console.log('AI Chat opened from navigation');
       setIsOpen(true);
       setShowInstructionBubble(false);
     };
