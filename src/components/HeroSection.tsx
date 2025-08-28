@@ -59,12 +59,16 @@ const HeroSection = () => {
               <Button 
                 variant="outline"
                 className="medical-button-secondary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto"
-                asChild
+                onClick={() => {
+                  const testimonialsSection = document.getElementById('testimonials');
+                  if (testimonialsSection) {
+                    testimonialsSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                aria-label="Read patient testimonials and success stories"
               >
-                <a href="#testimonials" aria-label="Read patient testimonials and success stories">
-                  Patient Stories
-                  <PlayCircle className="ml-2 h-4 sm:h-5 w-4 sm:w-5" aria-hidden="true" />
-                </a>
+                Patient Stories
+                <PlayCircle className="ml-2 h-4 sm:h-5 w-4 sm:w-5" aria-hidden="true" />
               </Button>
             </div>
 

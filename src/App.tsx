@@ -12,6 +12,7 @@ import ScrollToTop from "./components/ScrollToTop";
 // Lazy load all route components for better performance
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
+const Services = lazy(() => import("./pages/Services"));
 const ContentLibrary = lazy(() => import("./pages/ContentLibrary"));
 const Resources = lazy(() => import("./pages/Resources"));
 const HolisticallyRx = lazy(() => import("./pages/HolisticallyRx"));
@@ -40,6 +41,7 @@ const App = () => (
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/services" element={<Services />} />
                 <Route path="/content-library" element={<ContentLibrary />} />
                 <Route path="/blog" element={<ContentLibrary />} />
                 <Route path="/media" element={<ContentLibrary />} />
