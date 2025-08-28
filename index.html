@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dr. Erick Kaufman, MD - Board Certified Integrative Medicine & Medical Cannabis Expert | Oklahoma</title>
-    <meta name="description" content="Dr. Erick Kaufman, MD - Board Certified physician specializing in integrative medicine and medical cannabis in Oklahoma. Founder of Holistically Rx & Docs of Cannabis. Telehealth consultations available." />
+    <title>Dr. Erick Kaufman MD | Integrative Medicine Physician | Medical Cannabis Expert Oklahoma</title>
+    <meta name="description" content="Dr. Erick Kaufman MD - Board Certified integrative medicine physician in Oklahoma. Medical cannabis evaluations, telehealth consultations. Founder of Holistically Rx." />
     <meta name="author" content="Dr. Erick Kaufman, MD" />
-    <meta name="keywords" content="Dr Erick Kaufman MD, integrative medicine Oklahoma, medical cannabis doctor, telehealth physician, holistic healthcare, cannabis certification, chronic pain treatment" />
+    <meta name="keywords" content="integrative medicine physician Oklahoma, medical cannabis doctor, Dr Erick Kaufman MD, telehealth consultations, holistic healthcare, chronic pain treatment, alternative medicine" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#2E7D5A" />
 
@@ -27,13 +27,17 @@
     <!-- Critical CSS for above-the-fold performance -->
     <style>
       :root{--medical-primary:122 39% 49%;--trust-blue:207 90% 54%;--professional-navy:221 39% 11%;--medical-gray-700:210 11% 46%;--background:0 0% 100%;--foreground:216 16% 15%;--medical-gray-200:210 16% 88%}
-      body{font-family:Inter,system-ui,-apple-system,sans-serif;line-height:1.6;color:hsl(var(--foreground));background:hsl(var(--background));margin:0}
-      .medical-hero{background:linear-gradient(135deg,hsl(var(--medical-primary)/.05),hsl(var(--trust-blue)/.1),hsl(var(--medical-primary)/.05));min-height:90vh;display:flex;align-items:center}
-      h1{font-family:'Playfair Display',serif;font-weight:700;color:hsl(var(--professional-navy));line-height:1.1;font-size:clamp(2rem,5vw,3.5rem)}
-      .medical-button-primary{background:hsl(var(--medical-primary));color:white;border-radius:0.75rem;padding:1rem 2rem;font-weight:600;transition:all 0.2s;display:inline-flex;align-items:center;text-decoration:none}
-      .hero-container{max-width:80rem;margin:0 auto;padding:0 1rem;display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
+      *{box-sizing:border-box}
+      body{font-family:Inter,system-ui,-apple-system,sans-serif;line-height:1.6;color:hsl(var(--foreground));background:hsl(var(--background));margin:0;font-display:swap}
+      .medical-hero{background:linear-gradient(135deg,hsl(var(--medical-primary)/.05),hsl(var(--trust-blue)/.1),hsl(var(--medical-primary)/.05));min-height:90vh;display:flex;align-items:center;contain:layout style paint}
+      h1{font-family:'Playfair Display',serif;font-weight:700;color:hsl(var(--professional-navy));line-height:1.1;font-size:clamp(2rem,5vw,3.5rem);margin:0 0 1rem;contain:layout}
+      .medical-button-primary{background:hsl(var(--medical-primary));color:white;border-radius:0.75rem;padding:1rem 2rem;font-weight:600;transition:transform 0.2s;display:inline-flex;align-items:center;text-decoration:none;will-change:transform}
+      .hero-container{max-width:80rem;margin:0 auto;padding:0 1rem;display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;contain:layout}
       @media(min-width:1024px){.hero-container{grid-template-columns:1fr 1fr}}
-      .hero-image{border-radius:1rem;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);width:100%;max-width:28rem;height:auto}
+      .hero-image{border-radius:1rem;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);width:100%;max-width:28rem;height:auto;will-change:transform}
+      img{max-width:100%;height:auto}
+      .loading{opacity:0;transition:opacity 0.3s}
+      .loaded{opacity:1}
     </style>
     
     <!-- Performance optimizations -->
@@ -49,48 +53,59 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://drerickkaufman.com/" />
     
-    <!-- JSON-LD Structured Data -->
+    <!-- Enhanced JSON-LD Structured Data for SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Physician",
-      "name": "Dr. Erick Kaufman",
-      "givenName": "Erick",
-      "familyName": "Kaufman",
-      "honorificPrefix": "Dr.",
-      "honorificSuffix": "MD",
-      "jobTitle": "Board Certified Integrative Medicine Physician",
-      "url": "https://drerickkaufman.com",
-      "image": "https://drerickkaufman.com/dr-kaufman-headshot.jpg",
-      "description": "Board certified physician specializing in integrative medicine and medical cannabis with over 15 years of experience",
-      "medicalSpecialty": ["Integrative Medicine", "Medical Cannabis", "Holistic Healthcare", "Chronic Pain Management"],
-      "alumniOf": "Medical School",
-      "worksFor": {
-        "@type": "MedicalOrganization",
-        "name": "Holistically Rx"
-      },
-      "founder": [
+      "@graph": [
         {
-          "@type": "MedicalOrganization", 
-          "name": "Holistically Rx",
-          "url": "https://holisticallyrx.com"
+          "@type": "Person",
+          "@id": "https://drerickkaufman.com/#person",
+          "name": "Dr. Erick Kaufman",
+          "givenName": "Erick",
+          "familyName": "Kaufman",
+          "honorificPrefix": "Dr.",
+          "honorificSuffix": "MD",
+          "jobTitle": "Board Certified Integrative Medicine Physician",
+          "url": "https://drerickkaufman.com",
+          "image": "https://drerickkaufman.com/dr-kaufman-headshot.jpg",
+          "description": "Board certified physician specializing in integrative medicine and medical cannabis with expertise in holistic healthcare approaches",
+          "medicalSpecialty": ["Integrative Medicine", "Medical Cannabis", "Holistic Healthcare", "Alternative Medicine"],
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Oklahoma",
+            "addressCountry": "US"
+          },
+          "knowsAbout": ["Integrative Medicine", "Medical Cannabis", "Holistic Health", "Alternative Medicine", "Chronic Pain Management"],
+          "hasCredential": "Board Certified Physician"
         },
         {
-          "@type": "MedicalOrganization",
-          "name": "Docs of Cannabis", 
-          "url": "https://docsofcannabis.com"
+          "@type": "MedicalBusiness",
+          "@id": "https://drerickkaufman.com/#medicalbusiness",
+          "name": "Dr. Erick Kaufman MD Practice",
+          "url": "https://drerickkaufman.com",
+          "founder": {"@id": "https://drerickkaufman.com/#person"},
+          "medicalSpecialty": "Integrative Medicine",
+          "availableService": [
+            {"@type": "MedicalTherapy", "name": "Telehealth Consultations"},
+            {"@type": "MedicalTherapy", "name": "Medical Cannabis Evaluations"},
+            {"@type": "MedicalTherapy", "name": "Integrative Health Consultations"}
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://drerickkaufman.com/#website",
+          "url": "https://drerickkaufman.com",
+          "name": "Dr. Erick Kaufman MD - Integrative Medicine",
+          "description": "Professional website of Dr. Erick Kaufman, board certified integrative medicine physician",
+          "publisher": {"@id": "https://drerickkaufman.com/#person"},
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://drerickkaufman.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
         }
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "Oklahoma",
-        "addressCountry": "US"
-      },
-      "telephone": "+1-405-XXX-XXXX",
-      "availableService": {
-        "@type": "MedicalTherapy",
-        "name": "Telehealth Consultations"
-      }
+      ]
     }
     </script>
   </head>

@@ -12,3 +12,22 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Priority pages for crawling
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /resources
+Allow: /holistically-rx
+Allow: /docs-of-cannabis
+
+# Block unnecessary crawling
+Disallow: /tmp/
+Disallow: /*.json$
+Disallow: /*.txt$
+
+# Sitemap location
+Sitemap: https://drerickkaufman.com/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1

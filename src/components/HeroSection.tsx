@@ -106,14 +106,19 @@ const HeroSection = () => {
                   <source srcSet={drKaufmanOptimized} type="image/webp" />
                   <img
                     src={drKaufmanImage}
-                    alt="Dr. Erick Kaufman, MD - Board Certified Integrative Medicine Physician specializing in alternative medicine and holistic healthcare"
-                    className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl"
+                    alt="Dr. Erick Kaufman MD - Board Certified Integrative Medicine Physician and Medical Cannabis Expert in Oklahoma"
+                    className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl loading"
                     fetchPriority="high"
                     decoding="async"
                     loading="eager"
                     width={380}
                     height={444}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                    onLoad={(e) => {
+                      const img = e.target as HTMLImageElement;
+                      img.classList.remove('loading');
+                      img.classList.add('loaded');
+                    }}
                     style={{ 
                       contentVisibility: 'auto', 
                       containIntrinsicSize: '400px 500px',
