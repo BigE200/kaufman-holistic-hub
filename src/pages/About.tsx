@@ -38,7 +38,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <SEOHead 
         title="About Dr. Erick Kaufman, MD - Integrative Medicine Physician Biography"
         description="Learn about Dr. Erick Kaufman's journey from traditional medicine to integrative healthcare. Board certified physician, founder of Holistically Rx and Docs of Cannabis."
@@ -170,7 +170,7 @@ const About = () => {
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-medical-primary rounded-full flex items-center justify-center">
-                        <milestone.icon className="h-6 w-6 text-white" />
+                        <milestone.icon className="h-6 w-6 text-primary-foreground" />
                       </div>
                     </div>
                     <div className="flex-1">

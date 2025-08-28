@@ -67,7 +67,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <SEOHead 
         title="Contact Dr. Erick Kaufman, MD - Schedule Integrative Medicine Consultation"
         description="Contact Dr. Erick Kaufman for integrative medicine and medical cannabis consultations. Telehealth appointments available. Board certified physician serving patients nationwide."
@@ -105,7 +105,7 @@ const Contact = () => {
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0">
                         <div className="w-10 h-10 bg-medical-primary rounded-full flex items-center justify-center">
-                          <method.icon className="h-5 w-5 text-white" />
+                          <method.icon className="h-5 w-5 text-primary-foreground" />
                         </div>
                       </div>
                       <div>

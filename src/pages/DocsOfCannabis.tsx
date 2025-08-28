@@ -7,7 +7,7 @@ import { ExternalLink, Leaf, Shield, Users, BookOpen } from 'lucide-react';
 
 const DocsOfCannabis = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <SEOHead 
         title="Docs of Cannabis - Medical Cannabis Consultation | Dr. Erick Kaufman"
         description="Connect with Docs of Cannabis for expert medical cannabis consultation and education. Professional guidance for cannabis-based therapeutics and treatment options."
