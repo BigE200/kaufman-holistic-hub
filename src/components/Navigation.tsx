@@ -11,6 +11,7 @@ const Navigation = () => {
     { name: 'About', path: '/about' },
     { name: 'Content Library', path: '/blog' },
     { name: 'Holistically Rx', path: '/holistically-rx' },
+    { name: 'Docs of Cannabis', path: '/docs-of-cannabis' },
     { name: 'Media', path: '/media' },
   ];
 
