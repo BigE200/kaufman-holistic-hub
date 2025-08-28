@@ -56,13 +56,30 @@ const AIChat = () => {
 
   const quickResponses = [
     "What is integrative medicine?",
-    "Tell me about weight management options",
-    "What longevity therapies do you offer?",
+    "How do I get a medical cannabis card?",
+    "Tell me about weight management options", 
     "How do I schedule a consultation?",
   ];
 
   const generateBotResponse = (userMessage: string): string => {
     const lowerMessage = userMessage.toLowerCase();
+    
+    // Medical Cannabis Card & Docs of Cannabis
+    if (lowerMessage.includes('cannabis card') || lowerMessage.includes('medical marijuana card') || lowerMessage.includes('mmj card') || lowerMessage.includes('docs of cannabis')) {
+      return "Docs of Cannabis helps you get approved for your medical cannabis card online with licensed doctors. The process is fast and simple - most appointments take 15 minutes, with approval typically within 2 weeks. We serve patients in most US states and offer a money-back guarantee if you're not approved.";
+    }
+
+    if (lowerMessage.includes('qualifying conditions') || lowerMessage.includes('cannabis conditions') || lowerMessage.includes('medical marijuana conditions')) {
+      return "Common qualifying conditions for medical cannabis include chronic pain, PTSD, anxiety, epilepsy, cancer, insomnia, and many others. Each state has its own approved list. Our cannabis doctors at Docs of Cannabis evaluate your symptoms and medical history to determine eligibility - no guesswork, just clarity and support.";
+    }
+
+    if (lowerMessage.includes('cannabis renewal') || lowerMessage.includes('card renewal') || lowerMessage.includes('renew')) {
+      return "Docs of Cannabis makes medical marijuana card renewals simple and stress-free. We handle the paperwork, provide timely reminders, and ensure you stay compliant without interruptions in your care. The renewal process is even faster than initial applications.";
+    }
+
+    if (lowerMessage.includes('states') || lowerMessage.includes('where') || lowerMessage.includes('available')) {
+      return "Docs of Cannabis serves patients in most US states including Arkansas, Arizona, California, Connecticut, Delaware, Florida, Georgia, Illinois, Iowa, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nevada, New Jersey, New Mexico, New York, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, Texas, Vermont, Virginia, Washington, and West Virginia.";
+    }
     
     // Weight Management
     if (lowerMessage.includes('weight') || lowerMessage.includes('semaglutide') || lowerMessage.includes('tirzepatide') || lowerMessage.includes('wegovy')) {
@@ -101,12 +118,12 @@ const AIChat = () => {
     
     // Alternative Medicine & Cannabis
     if (lowerMessage.includes('alternative') || lowerMessage.includes('plant') || lowerMessage.includes('cannabis') || lowerMessage.includes('medical marijuana')) {
-      return "Alternative medicine and plant-based therapies can be effective for various conditions including chronic pain, anxiety, PTSD, and neurological disorders. Dr. Kaufman provides specialized certifications and guidance through both Holistically Rx and Docs of Cannabis platforms.";
+      return "Alternative medicine and plant-based therapies can be effective for various conditions including chronic pain, anxiety, PTSD, and neurological disorders. Dr. Kaufman provides specialized certifications and guidance through both Holistically Rx and Docs of Cannabis platforms. Cannabis offers a natural alternative to opioids for many patients.";
     }
     
     // Telehealth & Appointments
     if (lowerMessage.includes('telehealth') || lowerMessage.includes('consultation') || lowerMessage.includes('appointment') || lowerMessage.includes('schedule')) {
-      return "We offer secure telehealth consultations through HIPAA-compliant platforms. Holistically Rx is open every day of the week with no insurance required - just a 100% online process with licensed providers. Visit holisticallyrx.com to schedule your consultation.";
+      return "We offer secure telehealth consultations through HIPAA-compliant platforms. Both Holistically Rx and Docs of Cannabis are available every day with no insurance required - just a 100% online process with licensed providers. Visit holisticallyrx.com or docsofcannabis.com to schedule your consultation.";
     }
 
     // Team & Providers
@@ -116,15 +133,15 @@ const AIChat = () => {
 
     // Cost & Insurance
     if (lowerMessage.includes('cost') || lowerMessage.includes('price') || lowerMessage.includes('insurance') || lowerMessage.includes('affordable')) {
-      return "Holistically Rx provides affordable care with no insurance required. We believe in making integrative medicine accessible to everyone on a budget. Contact us through holisticallyrx.com for specific pricing on our services.";
+      return "Both Holistically Rx and Docs of Cannabis provide affordable care with no insurance required and transparent pricing with no hidden fees. We believe in making integrative medicine and cannabis therapy accessible to everyone. Docs of Cannabis even offers a money-back guarantee if you're not approved.";
     }
     
     // Trust & Quality
     if (lowerMessage.includes('trust') || lowerMessage.includes('feedback') || lowerMessage.includes('reviews') || lowerMessage.includes('safe')) {
-      return "Holistically Rx is trusted by over 1 million subscribers and maintains the highest standards with HIPAA compliance, licensed providers, and certified US-based pharmacies. Dr. Kaufman pioneered feedback systems in healthcare to ensure transparency and continuous improvement.";
+      return "Our platforms are trusted by over 1 million subscribers with 4.7-star ratings and hundreds of positive reviews. We maintain the highest standards with HIPAA compliance, licensed providers, and certified US-based pharmacies. Dr. Kaufman pioneered feedback systems in healthcare to ensure transparency and continuous improvement.";
     }
     
-    return "Thank you for your question! Holistically Rx offers comprehensive integrative care including weight management, longevity therapies, hormone optimization, IV therapy, diagnostic services, and emotional wellness support. For personalized medical advice, schedule a consultation at holisticallyrx.com or reach out through our contact page.";
+    return "Thank you for your question! Dr. Kaufman's platforms offer comprehensive care: Holistically Rx provides integrative medicine including weight management, longevity therapies, and hormone optimization, while Docs of Cannabis specializes in medical marijuana card certifications and cannabis therapy. For personalized advice, schedule a consultation at holisticallyrx.com or docsofcannabis.com.";
   };
 
   const handleSendMessage = async () => {
