@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import ContentLibrary from "./pages/ContentLibrary";
+import Resources from "./pages/Resources";
 import HolisticallyRx from "./pages/HolisticallyRx";
 import DocsOfCannabis from "./pages/DocsOfCannabis";
 import Contact from "./pages/Contact";
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/content-library" element={<ContentLibrary />} />
             <Route path="/blog" element={<ContentLibrary />} />
             <Route path="/media" element={<ContentLibrary />} />
+            <Route path="/resources" element={<Resources />} />
             <Route path="/holistically-rx" element={<HolisticallyRx />} />
             <Route path="/docs-of-cannabis" element={<DocsOfCannabis />} />
             <Route path="/contact" element={<Contact />} />
