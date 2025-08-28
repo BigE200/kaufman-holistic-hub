@@ -113,7 +113,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-medical-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-medical-gray-600 text-sm">
-            © 2024 Dr. Erick Kaufman, MD. All rights reserved.
+            © {new Date().getFullYear()} Dr. Erick Kaufman, MD. All rights reserved.
           </p>
           
           {/* Social Links */}
