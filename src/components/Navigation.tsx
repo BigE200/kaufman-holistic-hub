@@ -8,7 +8,6 @@ const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Content Library', path: '/blog' },
     { name: 'Services', path: '/services' },
