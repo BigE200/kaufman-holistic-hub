@@ -44,20 +44,38 @@ const NewsletterForm = ({ onSubscribe, compact = false }: NewsletterFormProps) =
 
     setIsSubmitting(true);
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API call
-      
       if (onSubscribe) {
         await onSubscribe({ email, firstName });
-      }
+      } else {
+        // Submit to Supabase Edge Function
+        const response = await fetch('/api/v1/newsletter-signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ 
+            email, 
+            name: firstName || undefined,
+            source: 'website-newsletter'
+          }),
+        });
 
-      toast({
-        title: "Successfully subscribed!",
-        description: "Welcome to Dr. Kaufman's newsletter. Check your email for confirmation.",
-      });
+        const result = await response.json();
+
+        if (!result.success) {
+          throw new Error(result.error || 'Failed to subscribe');
+        }
+
+        toast({
+          title: "Successfully subscribed!",
+          description: result.message || "Welcome to Dr. Kaufman's newsletter.",
+        });
+      }
       
       setEmail('');
       setFirstName('');
     } catch (error) {
+      console.error('Newsletter signup error:', error);
       toast({
         title: "Subscription failed",
         description: "Please try again or contact us directly.",

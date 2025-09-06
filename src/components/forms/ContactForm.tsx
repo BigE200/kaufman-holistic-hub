@@ -48,14 +48,30 @@ const ContactForm = ({ onSubmit }: ContactFormProps) => {
   const handleSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
       if (onSubmit) {
         await onSubmit(data);
       } else {
-        // Default handling - in production, this would call an API
-        // Form submitted successfully
+        // Submit to Supabase Edge Function
+        const response = await fetch('/api/v1/contact-submission', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: `${data.firstName} ${data.lastName}`,
+            email: data.email,
+            phone: data.phone || '',
+            company: '', // Can add company field later if needed
+            message: `Subject: ${data.subject}\n\n${data.message}`,
+            inquiryType: data.inquiryType
+          }),
+        });
+
+        const result = await response.json();
+
+        if (!result.success) {
+          throw new Error(result.error || 'Failed to send message');
+        }
       }
 
       toast({
@@ -65,6 +81,7 @@ const ContactForm = ({ onSubmit }: ContactFormProps) => {
       
       form.reset();
     } catch (error) {
+      console.error('Contact form error:', error);
       toast({
         title: "Error sending message",
         description: "Please try again or contact us directly at contact@drerickkaufman.com",
@@ -76,12 +93,10 @@ const ContactForm = ({ onSubmit }: ContactFormProps) => {
   };
 
   const inquiryTypes = [
-    { value: 'consultation', label: 'Medical Consultation' },
-    { value: 'telehealth', label: 'Telehealth Services' },
-    { value: 'cannabis', label: 'Medical Cannabis Guidance' },
-    { value: 'partnership', label: 'Professional Partnership' },
-    { value: 'media', label: 'Media Inquiry' },
-    { value: 'other', label: 'Other' },
+    { value: 'speaking', label: 'Speaking Engagement' },
+    { value: 'consulting', label: 'Business Consulting' },
+    { value: 'media', label: 'Media Interview' },
+    { value: 'general', label: 'General Inquiry' },
   ];
 
   return (
