@@ -1,82 +1,90 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-import { corsHeaders } from "../_shared/cors.ts"
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+};
 
-serve(async (req) => {
+Deno.serve(async (req) => {
+  // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
-    return new Response('ok', { headers: corsHeaders })
+    return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { message, conversationHistory = [] } = await req.json()
+    const { message, conversationHistory } = await req.json();
 
-    if (!message || typeof message !== 'string') {
+    if (!message) {
       return new Response(
         JSON.stringify({ error: 'Message is required' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      )
+      );
     }
 
-    const apiKey = Deno.env.get('ANTHROPIC_API_KEY')
-    if (!apiKey) {
-      return new Response(
-        JSON.stringify({ error: 'API key not configured' }),
-        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      )
+    const anthropicApiKey = Deno.env.get('ANTHROPIC_API_KEY');
+    if (!anthropicApiKey) {
+      throw new Error('ANTHROPIC_API_KEY not configured');
     }
 
     // Prepare messages for Anthropic API
-    const messages = [
-      {
-        role: 'system',
-        content: `You are Dr. Erick Kaufman's AI assistant for his integrative medicine practice. You should:
-        - Provide helpful information about integrative medicine, alternative therapies, and holistic healthcare
-        - Answer questions about medical cannabis, weight management, and Dr. Kaufman's services
-        - Be professional, empathetic, and informative
-        - Always remind users that this is general information and for specific medical advice they should schedule a consultation
-        - Keep responses concise and practical
-        - If asked about scheduling, direct them to contact the practice directly`
-      },
-      ...conversationHistory.slice(-10), // Keep last 10 messages for context
-      { role: 'user', content: message }
-    ]
+    const messages = [];
+    
+    // Add conversation history if provided
+    if (conversationHistory && conversationHistory.length > 0) {
+      for (const msg of conversationHistory) {
+        messages.push({
+          role: msg.sender === 'user' ? 'user' : 'assistant',
+          content: msg.text
+        });
+      }
+    }
+    
+    // Add current message
+    messages.push({
+      role: 'user',
+      content: message
+    });
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01'
+        'x-api-key': anthropicApiKey,
+        'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
         model: 'claude-3-5-haiku-20241022',
         max_tokens: 1000,
-        messages: messages.filter(m => m.role !== 'system'),
-        system: messages.find(m => m.role === 'system')?.content
-      })
-    })
+        system: `You are Dr. Kaufman's AI assistant. You help answer questions about integrative medicine, alternative therapies, holistic healthcare, medical cannabis, and weight management. 
+
+Key areas of expertise:
+- Integrative and functional medicine approaches
+- Medical cannabis recommendations and certification
+- Holistic weight management strategies
+- Alternative therapies and treatments
+- Preventive healthcare
+
+Always be helpful, professional, and informative. If asked about specific medical advice, remind users to consult with Dr. Kaufman directly for personalized medical recommendations.`,
+        messages: messages,
+      }),
+    });
 
     if (!response.ok) {
-      const errorText = await response.text()
-      console.error('Anthropic API error:', errorText)
-      return new Response(
-        JSON.stringify({ error: 'AI service temporarily unavailable' }),
-        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      )
+      console.error('Anthropic API error:', response.status, await response.text());
+      throw new Error(`Anthropic API error: ${response.status}`);
     }
 
-    const data = await response.json()
-    const aiResponse = data.content?.[0]?.text || 'I apologize, but I was unable to generate a response. Please try again.'
+    const data = await response.json();
+    const aiResponse = data.content[0].text;
 
     return new Response(
       JSON.stringify({ response: aiResponse }),
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    )
+    );
 
   } catch (error) {
-    console.error('Error in ai-chat function:', error)
+    console.error('Error in ai-chat function:', error);
     return new Response(
-      JSON.stringify({ error: 'Internal server error' }),
+      JSON.stringify({ error: error.message }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    )
+    );
   }
-})
+});
