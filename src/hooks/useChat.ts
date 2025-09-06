@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { supabase } from '@/integrations/supabase/client';
 
 export interface Message {
   id: string;
@@ -25,27 +26,21 @@ export const useChat = ({ initialMessage, onSendMessage }: UseChatProps = {}) =>
 
   const generateBotResponse = useCallback(async (userMessage: string): Promise<string> => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-chat`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-        },
-        body: JSON.stringify({
+      const { data, error } = await supabase.functions.invoke('ai-chat', {
+        body: {
           message: userMessage,
           conversationHistory: messages.slice(-10).map(msg => ({
             role: msg.sender === 'user' ? 'user' : 'assistant',
             content: msg.text
           }))
-        })
+        }
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to get AI response');
+      if (error) {
+        throw new Error(`AI response error: ${error.message}`);
       }
 
-      const data = await response.json();
-      return data.response || "I apologize, but I'm having trouble responding right now. Please try again.";
+      return data?.response || "I apologize, but I'm having trouble responding right now. Please try again.";
     } catch (error) {
       console.error('Error getting AI response:', error);
       return "I'm experiencing technical difficulties. Please try again in a moment, or contact our office directly for immediate assistance.";
