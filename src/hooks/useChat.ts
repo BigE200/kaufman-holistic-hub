@@ -25,10 +25,11 @@ export const useChat = ({ initialMessage, onSendMessage }: UseChatProps = {}) =>
 
   const generateBotResponse = useCallback(async (userMessage: string): Promise<string> => {
     try {
-      const response = await fetch('/api/ai-chat', {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
         },
         body: JSON.stringify({
           message: userMessage,
