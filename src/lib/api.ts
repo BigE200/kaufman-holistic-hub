@@ -11,6 +11,9 @@ export const API_ENDPOINTS = {
   AI_CHAT: `${SUPABASE_URL}/functions/v1/ai-chat`,
 };
 
+// Create a proxy for the AI chat API to handle the correct endpoint
+export const AI_CHAT_ENDPOINT = '/api/ai-chat';
+
 // Helper function to make API calls to Supabase Edge Functions
 export async function callEdgeFunction(functionName: string, data: any) {
   const url = `${SUPABASE_URL}/functions/v1/${functionName}`;
