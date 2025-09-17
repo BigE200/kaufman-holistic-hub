@@ -14,6 +14,129 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_configurations: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          model: string
+          name: string
+          organization_id: string
+          phone_number_id: string | null
+          settings: Json | null
+          system_prompt: string | null
+          updated_at: string
+          voice_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          model?: string
+          name: string
+          organization_id: string
+          phone_number_id?: string | null
+          settings?: Json | null
+          system_prompt?: string | null
+          updated_at?: string
+          voice_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          model?: string
+          name?: string
+          organization_id?: string
+          phone_number_id?: string | null
+          settings?: Json | null
+          system_prompt?: string | null
+          updated_at?: string
+          voice_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_configurations_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ai_configurations_phone_number_id_fkey"
+            columns: ["phone_number_id"]
+            isOneToOne: false
+            referencedRelation: "phone_numbers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      call_records: {
+        Row: {
+          ai_summary: string | null
+          call_sid: string | null
+          caller_number: string
+          created_at: string
+          direction: string
+          duration_seconds: number | null
+          ended_at: string | null
+          id: string
+          metadata: Json | null
+          organization_id: string
+          phone_number_id: string
+          recording_url: string | null
+          status: string
+          transcript: string | null
+        }
+        Insert: {
+          ai_summary?: string | null
+          call_sid?: string | null
+          caller_number: string
+          created_at?: string
+          direction: string
+          duration_seconds?: number | null
+          ended_at?: string | null
+          id?: string
+          metadata?: Json | null
+          organization_id: string
+          phone_number_id: string
+          recording_url?: string | null
+          status: string
+          transcript?: string | null
+        }
+        Update: {
+          ai_summary?: string | null
+          call_sid?: string | null
+          caller_number?: string
+          created_at?: string
+          direction?: string
+          duration_seconds?: number | null
+          ended_at?: string | null
+          id?: string
+          metadata?: Json | null
+          organization_id?: string
+          phone_number_id?: string
+          recording_url?: string | null
+          status?: string
+          transcript?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "call_records_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "call_records_phone_number_id_fkey"
+            columns: ["phone_number_id"]
+            isOneToOne: false
+            referencedRelation: "phone_numbers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       kaufman_contact_submissions: {
         Row: {
           company: string | null
@@ -79,6 +202,147 @@ export type Database = {
           unsubscribed_at?: string | null
         }
         Relationships: []
+      }
+      knowledge_base: {
+        Row: {
+          content: string
+          created_at: string
+          description: string | null
+          embeddings: number[] | null
+          id: string
+          is_active: boolean
+          name: string
+          organization_id: string
+          updated_at: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          description?: string | null
+          embeddings?: number[] | null
+          id?: string
+          is_active?: boolean
+          name: string
+          organization_id: string
+          updated_at?: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          description?: string | null
+          embeddings?: number[] | null
+          id?: string
+          is_active?: boolean
+          name?: string
+          organization_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "knowledge_base_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      organization_members: {
+        Row: {
+          created_at: string
+          id: string
+          organization_id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          organization_id: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          organization_id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "organization_members_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      organizations: {
+        Row: {
+          created_at: string
+          domain: string | null
+          id: string
+          name: string
+          settings: Json | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          domain?: string | null
+          id?: string
+          name: string
+          settings?: Json | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          domain?: string | null
+          id?: string
+          name?: string
+          settings?: Json | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      phone_numbers: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          organization_id: string
+          phone_number: string
+          provider: string
+          settings: Json | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          organization_id: string
+          phone_number: string
+          provider?: string
+          settings?: Json | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          organization_id?: string
+          phone_number?: string
+          provider?: string
+          settings?: Json | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "phone_numbers_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
