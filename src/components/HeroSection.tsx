@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 import drKaufmanOptimized from '@/assets/dr-kaufman-optimized.webp';
@@ -20,19 +19,17 @@ const HeroSection = () => {
           <div className="space-y-6 lg:space-y-8 text-center lg:text-left">
             <div className="space-y-3 lg:space-y-4 animate-fade-in">
               <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-professional-navy leading-tight">
-                Personalized, 360°{" "}
+                Stop managing disease.{" "}
                 <span className="text-medical-primary block mt-1">
-                  integrative medicine
+                  Start optimizing
                 </span>
                 <span className="text-trust-blue block mt-1">
-                  for your well-being
+                  your whole health.
                 </span>
               </h1>
               
               <p className="text-lg sm:text-xl text-medical-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                The most trusted name in integrative and alternative medicine. 
-                Erick Kaufman MD is your dedicated partner on the path to your best life. 
-                Premium solutions to optimize your health, embodying a legacy of trust, innovation, and transformative care.
+                You deserve healthcare that treats the whole person, not just the symptoms. Dr. Erick Kaufman, a medical scientist with 30+ years of experience, built the systems that connect you to vetted, independent providers who actually listen.
               </p>
             </div>
 
@@ -40,7 +37,7 @@ const HeroSection = () => {
             <div className="bg-background/70 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-medical-gray-200">
               <h3 className="font-semibold text-professional-navy mb-2 text-base sm:text-lg">Our Mission</h3>
               <p className="text-medical-gray-600 italic text-sm sm:text-base">
-                "Making holistic, evidence-based, and accessible healthcare transparent and trustworthy"
+                "To make whole-person care accessible, affordable, authoritative, and truly patient-centered."
               </p>
             </div>
 
@@ -50,8 +47,8 @@ const HeroSection = () => {
                 className="medical-button-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto"
                 asChild
               >
-                <a href="/services" aria-label="Explore Dr. Kaufman's integrative medicine services">
-                  Explore Services
+                <a href="/services" aria-label="Explore the paths to optimal health">
+                  Find Your Provider
                   <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" aria-hidden="true" />
                 </a>
               </Button>
@@ -65,7 +62,7 @@ const HeroSection = () => {
                     testimonialsSection.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                aria-label="Read patient testimonials and success stories"
+                aria-label="Read patient success stories"
               >
                 Patient Stories
                 <PlayCircle className="ml-2 h-4 sm:h-5 w-4 sm:w-5" aria-hidden="true" />
@@ -75,7 +72,7 @@ const HeroSection = () => {
             {/* Trust Indicators */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 pt-4 text-center lg:text-left">
               <div className="text-sm text-medical-gray-600">
-                <span className="font-semibold">Founder & Medical Director:</span>
+                <span className="font-semibold">Founder & Systems Architect:</span>
               </div>
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
                 <a 
@@ -97,6 +94,11 @@ const HeroSection = () => {
                 </a>
               </div>
             </div>
+            
+            {/* Compliance Disclaimer */}
+            <div className="text-xs text-medical-gray-500 italic mt-2 text-center lg:text-left">
+              EKMD is a referral platform connecting patients with independent licensed professionals. It does not provide direct medical care.
+            </div>
           </div>
 
           {/* Professional Image */}
@@ -106,7 +108,7 @@ const HeroSection = () => {
                   <source srcSet={drKaufmanOptimized} type="image/webp" />
                   <img
                     src={drKaufmanImage}
-                    alt="Dr. Erick Kaufman MD - Board Certified Integrative Medicine Physician and Medical Cannabis Expert in Oklahoma"
+                    alt="Dr. C. Erick Kaufman MD - Medical Scientist and Healthcare Entrepreneur"
                     className="w-full max-w-sm sm:max-w-md mx-auto rounded-2xl shadow-2xl loading"
                     fetchPriority="high"
                     decoding="async"
@@ -132,7 +134,7 @@ const HeroSection = () => {
               <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-background p-3 sm:p-4 rounded-xl shadow-lg border border-medical-gray-200">
                 <div className="text-center">
                   <div className="font-bold text-professional-navy text-base sm:text-lg">MD</div>
-                  <div className="text-xs text-medical-gray-600">Board Certified</div>
+                  <div className="text-xs text-medical-gray-600">Medical Scientist</div>
                 </div>
               </div>
             </div>

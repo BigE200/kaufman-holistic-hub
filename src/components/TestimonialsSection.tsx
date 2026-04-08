@@ -5,29 +5,29 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       name: "Sarah M.",
-      condition: "Chronic Pain Patient",
-      quote: "Dr. Kaufman's approach to alternative medicine changed my life. For the first time in years, I'm managing my chronic pain effectively without harsh pharmaceuticals.",
+      condition: "Chronic Pain",
+      quote: "The providers I was connected with through this platform changed my life. For the first time in years, I'm managing my chronic pain effectively without relying solely on pharmaceuticals.",
       rating: 5,
       location: "Oklahoma City, OK"
     },
     {
       name: "Michael R.", 
       condition: "Anxiety & PTSD",
-      quote: "The comprehensive care and education I received about alternative therapies was exceptional. Dr. Kaufman took time to understand my specific needs.",
+      quote: "The education and resources on this platform were exceptional. I was connected with a provider who took time to understand my specific needs and goals.",
       rating: 5,
       location: "Tulsa, OK"
     },
     {
       name: "Jennifer L.",
       condition: "Cancer Support",
-      quote: "During my cancer treatment, Dr. Kaufman's holistic approach helped manage side effects and improved my quality of life significantly.",
+      quote: "During my cancer treatment, the holistic approach of the providers in this network helped manage side effects and genuinely improved my quality of life.",
       rating: 5,
       location: "Norman, OK"
     },
     {
       name: "David K.",
       condition: "Sleep Disorders",
-      quote: "After years of prescription sleep aids, Dr. Kaufman's integrative approach finally gave me natural, restorative sleep.",
+      quote: "After years of prescription sleep aids, the integrative approach of the provider I was referred to finally gave me natural, restorative sleep.",
       rating: 5,
       location: "Edmond, OK"
     }
@@ -35,8 +35,8 @@ const TestimonialsSection = () => {
 
   const stats = [
     { number: "1,200+", label: "Physicians in Network" },
-    { number: "10,000+", label: "Patients Served" },
-    { number: "98%", label: "Patient Satisfaction" },
+    { number: "45,000+", label: "Patients Connected" },
+    { number: "4.6/5", label: "Trustpilot Rating" },
     { number: "30+", label: "Years Experience" }
   ];
 
@@ -49,10 +49,9 @@ const TestimonialsSection = () => {
             Patient <span className="text-medical-primary">Success Stories</span>
           </h2>
           <p className="text-lg sm:text-xl text-medical-gray-600 max-w-3xl mx-auto">
-            Real patients sharing their transformative experiences with integrative and alternative medicine
+            Real people sharing their experiences after being connected with our network of trusted, independent providers.
           </p>
         </div>
-
 
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -107,10 +106,10 @@ const TestimonialsSection = () => {
         <div className="text-center mt-12">
           <Card className="inline-block p-6 bg-gradient-to-r from-medical-primary/5 to-trust-blue/5 border-medical-primary/20">
             <p className="text-medical-gray-600 mb-3">
-              Join thousands of patients who have transformed their health journey
+              Join thousands of people who have found the right provider for their health journey.
             </p>
             <div className="text-sm text-medical-gray-500">
-              ★★★★★ Rated 4.9/5 by patients nationwide
+              ★★★★★ Rated 4.6/5 on Trustpilot
             </div>
           </Card>
         </div>

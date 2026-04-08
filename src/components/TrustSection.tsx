@@ -1,55 +1,31 @@
-import { Star, Award, Users, Shield } from 'lucide-react';
+import { Star, Award, Users, BookOpen } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const TrustSection = () => {
   const trustMetrics = [
     {
       icon: Users,
-      number: "10,000+",
-      label: "Patients Served",
-      description: "Across telemedicine platforms"
+      number: "45,000+",
+      label: "Patients Connected",
+      description: "Across the DOC & HRx platforms"
     },
     {
       icon: Star,
-      number: "4.9/5",
-      label: "Patient Rating",
-      description: "Based on verified reviews"
+      number: "4.6/5",
+      label: "Trustpilot Rating",
+      description: "Verified patient reviews"
     },
     {
       icon: Award,
-      number: "15+",
+      number: "30+",
       label: "Years Experience",
-      description: "In medical practice"
+      description: "In medicine, research & education"
     },
     {
-      icon: Shield,
-      number: "100%",
-      label: "HIPAA Compliant",
-      description: "Secure patient care"
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Sarah M.",
-      location: "Oklahoma",
-      rating: 5,
-      text: "Dr. Kaufman transformed my approach to chronic pain management. His holistic methods with alternative therapies have given me my life back.",
-      treatment: "Alternative Medicine Certification"
-    },
-    {
-      name: "Michael R.",
-      location: "Texas",
-      rating: 5,
-      text: "The telehealth experience was seamless and professional. Dr. Kaufman takes time to understand your whole health picture.",
-      treatment: "Integrative Medicine Consultation"
-    },
-    {
-      name: "Jennifer L.",
-      location: "Colorado",
-      rating: 5,
-      text: "Finally found a doctor who listens and provides real solutions. The feedback system builds incredible trust in the process.",
-      treatment: "Holistic Healthcare Plan"
+      icon: BookOpen,
+      number: "232",
+      label: "Research Citations",
+      description: "Peer-reviewed publications"
     }
   ];
 
@@ -59,10 +35,10 @@ const TrustSection = () => {
         {/* Trust Metrics */}
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-professional-navy mb-4">
-            Trusted by Thousands of Patients
+            A Trusted Authority in Integrative Medicine
           </h2>
           <p className="text-xl text-medical-gray-600 max-w-3xl mx-auto">
-            Building transparency and trust through patient-centered care and innovative feedback systems
+            Dr. Kaufman's expertise and the platforms he built have connected tens of thousands of Americans with the evidence-based, patient-centered care they deserve.
           </p>
         </div>
 
@@ -87,46 +63,6 @@ const TrustSection = () => {
           ))}
         </div>
 
-        {/* Patient Testimonials */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl lg:text-3xl font-bold text-professional-navy mb-4">
-              What Patients Say
-            </h3>
-            <p className="text-lg text-medical-gray-600">
-              Real feedback from patients who've experienced our holistic approach
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="trust-card p-4 sm:p-6">
-                <CardContent className="p-0">
-                  {/* Rating Stars */}
-                  <div className="flex mb-3 sm:mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  
-                  <blockquote className="text-medical-gray-600 mb-4 sm:mb-6 italic text-sm sm:text-base">
-                    "{testimonial.text}"
-                  </blockquote>
-                  
-                  <div className="border-t border-medical-gray-200 pt-3 sm:pt-4">
-                    <div className="font-semibold text-professional-navy text-sm sm:text-base">
-                      {testimonial.name}
-                    </div>
-                    <div className="text-xs sm:text-sm text-medical-gray-600">
-                      {testimonial.location} • {testimonial.treatment}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
         {/* Trustmary Widget Placeholder */}
         <div className="bg-medical-gray-50 rounded-xl p-8 text-center">
           <h4 className="text-xl font-semibold text-professional-navy mb-4">
@@ -134,10 +70,10 @@ const TrustSection = () => {
           </h4>
           <div className="bg-background rounded-lg p-6 border border-medical-gray-200">
             <div className="text-medical-gray-600 mb-4">
-              <em>Trustmary Review Widget Integration</em>
+              <em>Trustmary Review Widget — Live Reviews from Holistically Rx &amp; Docs of Cannabis</em>
             </div>
             <p className="text-sm text-medical-gray-600">
-              Real-time patient feedback from Holistically Rx and Docs of Cannabis platforms
+              Real-time verified patient feedback from the HRx and DOC provider networks.
             </p>
           </div>
         </div>
