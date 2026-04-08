@@ -20,6 +20,7 @@ const DocsOfCannabis = lazy(() => import("./pages/DocsOfCannabis"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
+const Supplements = lazy(() => import("./pages/Supplements"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -48,6 +49,7 @@ const App = () => (
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/holistically-rx" element={<HolisticallyRx />} />
                 <Route path="/docs-of-cannabis" element={<DocsOfCannabis />} />
+                <Route path="/supplements" element={<Supplements />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
