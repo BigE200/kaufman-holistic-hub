@@ -1,64 +1,70 @@
-import { useEffect, useRef } from 'react';
-import { Download, BookOpen, Microscope, Users } from 'lucide-react';
+import { useState } from 'react';
+import { Download, BookOpen, Microscope, Users, CheckCircle, Loader2 } from 'lucide-react';
 
-// HubSpot form configuration
+// HubSpot Forms Submit API configuration
 const HUBSPOT_PORTAL_ID = '5490681';
 const HUBSPOT_FORM_ID = '3cf0ed42-181a-45f1-a080-7d66eea66b42';
 
-declare global {
-  interface Window {
-    hbspt?: {
-      forms: {
-        create: (config: {
-          region: string;
-          portalId: string;
-          formId: string;
-          target: string;
-          onFormSubmitted?: () => void;
-        }) => void;
-      };
-    };
-  }
-}
-
 const LeadMagnetSection = () => {
-  const formContainerRef = useRef<HTMLDivElement>(null);
-  const formLoaded = useRef(false);
+  const [firstName, setFirstName] = useState('');
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  useEffect(() => {
-    if (formLoaded.current) return;
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+    setErrorMessage('');
 
-    const loadHubSpotForm = () => {
-      if (window.hbspt && formContainerRef.current) {
-        formLoaded.current = true;
-        window.hbspt.forms.create({
-          region: 'na1',
-          portalId: HUBSPOT_PORTAL_ID,
-          formId: HUBSPOT_FORM_ID,
-          target: '#hubspot-form-container',
-        });
+    try {
+      const response = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            fields: [
+              {
+                objectTypeId: '0-1',
+                name: 'firstname',
+                value: firstName.trim(),
+              },
+              {
+                objectTypeId: '0-1',
+                name: 'email',
+                value: email.trim(),
+              },
+              {
+                objectTypeId: '0-1',
+                name: 'ekmd_lead_source',
+                value: 'EKMD_guide_download',
+              },
+            ],
+            context: {
+              pageUri: window.location.href,
+              pageName: 'EKMD — Integrative Health Guide Download',
+            },
+          }),
+        }
+      );
+
+      if (response.ok) {
+        setStatus('success');
+        setFirstName('');
+        setEmail('');
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        const msg = errorData?.errors?.[0]?.message || `Submission failed (${response.status})`;
+        setErrorMessage(msg);
+        setStatus('error');
       }
-    };
-
-    // Check if HubSpot script is already loaded
-    if (window.hbspt) {
-      loadHubSpotForm();
-      return;
+    } catch {
+      setErrorMessage('Network error — please check your connection and try again.');
+      setStatus('error');
     }
-
-    // Load the HubSpot embed script
-    const script = document.createElement('script');
-    script.src = '//js.hsforms.net/forms/embed/v2.js';
-    script.charset = 'utf-8';
-    script.type = 'text/javascript';
-    script.async = true;
-    script.onload = loadHubSpotForm;
-    document.head.appendChild(script);
-
-    return () => {
-      // Cleanup: don't remove the script as it may be used elsewhere
-    };
-  }, []);
+  };
 
   const benefits = [
     {
@@ -111,7 +117,7 @@ const LeadMagnetSection = () => {
               </div>
             </div>
 
-            {/* Right: HubSpot Form */}
+            {/* Right: Form */}
             <div className="p-8 sm:p-12 flex flex-col justify-center">
               <h3 className="text-2xl font-bold text-professional-navy mb-2">
                 Get Your Free Copy
@@ -120,12 +126,76 @@ const LeadMagnetSection = () => {
                 Join thousands of patients and providers who are rethinking what healthcare can be.
               </p>
 
-              {/* HubSpot form renders here */}
-              <div
-                id="hubspot-form-container"
-                ref={formContainerRef}
-                className="hubspot-form-wrapper"
-              />
+              {status === 'success' ? (
+                <div className="flex flex-col items-center justify-center py-8 text-center">
+                  <CheckCircle className="h-12 w-12 text-medical-primary mb-4" />
+                  <p className="text-lg font-semibold text-professional-navy mb-2">
+                    Thank you! Your free guide is on its way.
+                  </p>
+                  <p className="text-sm text-medical-gray-600">
+                    Check your inbox — it should arrive within a few minutes.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label
+                      htmlFor="lead-firstname"
+                      className="block text-sm font-medium text-professional-navy mb-1"
+                    >
+                      First Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="lead-firstname"
+                      type="text"
+                      required
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      placeholder="Your first name"
+                      className="w-full px-4 py-3 rounded-xl border border-medical-gray-200 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:border-medical-primary text-professional-navy placeholder-medical-gray-400 transition"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="lead-email"
+                      className="block text-sm font-medium text-professional-navy mb-1"
+                    >
+                      Email Address <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="lead-email"
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="your@email.com"
+                      className="w-full px-4 py-3 rounded-xl border border-medical-gray-200 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:border-medical-primary text-professional-navy placeholder-medical-gray-400 transition"
+                    />
+                  </div>
+
+                  {status === 'error' && (
+                    <p className="text-sm text-red-600 bg-red-50 px-4 py-3 rounded-lg">
+                      {errorMessage}
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={status === 'submitting'}
+                    className="w-full bg-medical-primary hover:bg-medical-primary/90 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2"
+                  >
+                    {status === 'submitting' ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        Sending…
+                      </>
+                    ) : (
+                      'Send Me the Free Guide'
+                    )}
+                  </button>
+                </form>
+              )}
 
               <p className="text-xs text-medical-gray-400 text-center mt-4">
                 No spam, ever. Unsubscribe at any time. Your privacy is our priority.
