@@ -20,21 +20,7 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Super Header */}
-      <div className="bg-medical-gray-50 border-b border-medical-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center h-10">
-            <Link to="/" className="flex items-center space-x-2 group hover:opacity-80 transition-opacity">
-              <span className="text-medical-gray-600 text-sm">←</span>
-              <span className="font-medium text-medical-gray-600 text-sm">
-                Back to ErickKaufman.com
-              </span>
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Navigation */}
+      {/* Main Navigation — no super header artifact */}
       <nav className="professional-nav sticky top-0 z-50" role="navigation" aria-label="Main navigation">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14 sm:h-16">
@@ -63,6 +49,15 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
+            {/* Fullscript Supplements Link */}
+            <a
+              href="https://us.fullscript.com/welcome/ckaufman1759530062"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-sm lg:text-base text-medical-gray-600 hover:text-medical-primary transition-colors duration-200"
+            >
+              Supplements
+            </a>
             <Button
               onClick={() => {
                 const event = new CustomEvent('openAIChat');
@@ -72,19 +67,6 @@ const Navigation = () => {
             >
               <Bot className="mr-2 h-4 w-4" />
               Ask AI Erick
-            </Button>
-            <Button 
-              variant="outline" 
-              className="medical-button-primary ml-2 text-sm px-4 py-2"
-              asChild
-            >
-              <a 
-                href="https://www.linkedin.com/in/c-erick-kaufman-md-32a76b26"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Follow on LinkedIn
-              </a>
             </Button>
           </div>
 
@@ -121,6 +103,16 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
+              {/* Mobile Fullscript Link */}
+              <a
+                href="https://us.fullscript.com/welcome/ckaufman1759530062"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-3 py-2 text-base font-medium text-medical-gray-600 hover:text-medical-primary hover:bg-medical-gray-50 transition-colors duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                Supplements
+              </a>
               <div className="px-3 py-2 space-y-2">
                 <Button
                   onClick={() => {
@@ -132,19 +124,6 @@ const Navigation = () => {
                 >
                   <Bot className="mr-2 h-4 w-4" />
                   Ask AI Erick
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="medical-button-primary w-full"
-                  asChild
-                >
-                  <a 
-                    href="https://www.linkedin.com/in/c-erick-kaufman-md-32a76b26"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Follow on LinkedIn
-                  </a>
                 </Button>
               </div>
             </div>

@@ -97,6 +97,16 @@ const Footer = () => {
                 </a>
               </li>
               <li>
+                <a 
+                  href="https://us.fullscript.com/welcome/ckaufman1759530062" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-medical-gray-600 hover:text-medical-primary"
+                >
+                  HRx Supplement Dispensary
+                </a>
+              </li>
+              <li>
                 <Link to="/privacy" className="text-medical-gray-600 hover:text-medical-primary">
                   Privacy Policy
                 </Link>
