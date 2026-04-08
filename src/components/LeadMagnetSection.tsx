@@ -1,23 +1,64 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { CheckCircle, Download, BookOpen, Microscope, Users } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { Download, BookOpen, Microscope, Users } from 'lucide-react';
+
+// HubSpot form configuration
+const HUBSPOT_PORTAL_ID = '5490681';
+const HUBSPOT_FORM_ID = '3cf0ed42-181a-45f1-a080-7d66eea66b42';
+
+declare global {
+  interface Window {
+    hbspt?: {
+      forms: {
+        create: (config: {
+          region: string;
+          portalId: string;
+          formId: string;
+          target: string;
+          onFormSubmitted?: () => void;
+        }) => void;
+      };
+    };
+  }
+}
 
 const LeadMagnetSection = () => {
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const formContainerRef = useRef<HTMLDivElement>(null);
+  const formLoaded = useRef(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    // TODO: Wire to HubSpot form submission
-    // POST to HubSpot Forms API or use embedded HubSpot form
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    setIsSubmitted(true);
-    setIsLoading(false);
-  };
+  useEffect(() => {
+    if (formLoaded.current) return;
+
+    const loadHubSpotForm = () => {
+      if (window.hbspt && formContainerRef.current) {
+        formLoaded.current = true;
+        window.hbspt.forms.create({
+          region: 'na1',
+          portalId: HUBSPOT_PORTAL_ID,
+          formId: HUBSPOT_FORM_ID,
+          target: '#hubspot-form-container',
+        });
+      }
+    };
+
+    // Check if HubSpot script is already loaded
+    if (window.hbspt) {
+      loadHubSpotForm();
+      return;
+    }
+
+    // Load the HubSpot embed script
+    const script = document.createElement('script');
+    script.src = '//js.hsforms.net/forms/embed/v2.js';
+    script.charset = 'utf-8';
+    script.type = 'text/javascript';
+    script.async = true;
+    script.onload = loadHubSpotForm;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup: don't remove the script as it may be used elsewhere
+    };
+  }, []);
 
   const benefits = [
     {
@@ -70,75 +111,27 @@ const LeadMagnetSection = () => {
               </div>
             </div>
 
-            {/* Right: Form */}
+            {/* Right: HubSpot Form */}
             <div className="p-8 sm:p-12 flex flex-col justify-center">
-              {!isSubmitted ? (
-                <>
-                  <h3 className="text-2xl font-bold text-professional-navy mb-2">
-                    Get Your Free Copy
-                  </h3>
-                  <p className="text-medical-gray-600 mb-8">
-                    Join thousands of patients and providers who are rethinking what healthcare can be.
-                  </p>
+              <h3 className="text-2xl font-bold text-professional-navy mb-2">
+                Get Your Free Copy
+              </h3>
+              <p className="text-medical-gray-600 mb-6">
+                Join thousands of patients and providers who are rethinking what healthcare can be.
+              </p>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <label htmlFor="firstName" className="block text-sm font-medium text-professional-navy mb-1.5">
-                        First Name
-                      </label>
-                      <Input
-                        id="firstName"
-                        type="text"
-                        placeholder="Your first name"
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
-                        required
-                        className="w-full"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-professional-navy mb-1.5">
-                        Email Address
-                      </label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="your@email.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        className="w-full"
-                      />
-                    </div>
+              {/* HubSpot form renders here */}
+              <div
+                id="hubspot-form-container"
+                ref={formContainerRef}
+                className="hubspot-form-wrapper"
+              />
 
-                    <Button
-                      type="submit"
-                      disabled={isLoading}
-                      className="w-full bg-medical-primary hover:bg-medical-accent text-white py-3 text-base font-semibold mt-2"
-                    >
-                      {isLoading ? 'Sending...' : 'Send Me the Free Guide'}
-                      {!isLoading && <Download className="ml-2 h-4 w-4" />}
-                    </Button>
-                  </form>
-
-                  <p className="text-xs text-medical-gray-400 text-center mt-4">
-                    No spam, ever. Unsubscribe at any time. Your privacy is our priority.
-                  </p>
-                </>
-              ) : (
-                <div className="text-center py-8">
-                  <div className="w-16 h-16 bg-wellness-green/10 rounded-full flex items-center justify-center mx-auto mb-5">
-                    <CheckCircle className="h-8 w-8 text-wellness-green" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-professional-navy mb-3">
-                    You're in, {firstName}!
-                  </h3>
-                  <p className="text-medical-gray-600 leading-relaxed">
-                    Check your inbox — your free guide is on its way. Welcome to the EKMD community.
-                  </p>
-                </div>
-              )}
+              <p className="text-xs text-medical-gray-400 text-center mt-4">
+                No spam, ever. Unsubscribe at any time. Your privacy is our priority.
+              </p>
             </div>
+
           </div>
         </div>
       </div>
